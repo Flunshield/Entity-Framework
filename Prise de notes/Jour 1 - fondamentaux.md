@@ -476,3 +476,4 @@ Le cycle de vie d'un **DbContext** suit les étapes suivantes :
 
 Le bon usage du **DbContext** garantit des performances optimales et une gestion efficace de la mémoire dans votre application.
 
+## Configuration avancée du DbContext
