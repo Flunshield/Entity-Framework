@@ -10,19 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4bb8b3f-c125-4e45-8900-557cce3e163c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Data/PriceHistory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Prise de notes/.obsidian/workspace.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../Prise de notes/.obsidian/workspace.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Prise de notes/Jour 1 - fondamentaux.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../Prise de notes/Jour 1 - fondamentaux.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Prise de notes/Vocabulaire.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../Prise de notes/Vocabulaire.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MyWebApi.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MyWebApi.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/AppDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Customer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Customer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Product.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Product.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/AppDb/AppDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/AppDb/AppDbContextModelSnapshot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net8.0/MyWebApi.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net8.0/MyWebApi.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net8.0/MyWebApi.exe" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net8.0/MyWebApi.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net8.0/MyWebApi.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net8.0/MyWebApi.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/MyWebApi.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/MyWebApi.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/MyWebApi.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/MyWebApi.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/MyWebApi.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/MyWebApi.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/MyWebApi.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/MyWebApi.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/MyWebApi.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/MyWebApi.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/MyWebApi.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/MyWebApi.sourcelink.json" afterDir="false" />
@@ -41,28 +36,28 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a0b45f29f34f594814a7b1fbc25fe5ef3c18257956ed4f4fbfa68717db58/DbContext.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2vOSDRR4I4QrNVbbKq6QdInWYEX" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.MyWebApi: IIS Express">
     <configuration name="MyWebApi: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/MyWebApi.csproj" />
