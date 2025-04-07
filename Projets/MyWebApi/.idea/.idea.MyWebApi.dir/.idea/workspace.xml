@@ -10,10 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4bb8b3f-c125-4e45-8900-557cce3e163c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Prise de notes/.obsidian/workspace.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../Prise de notes/.obsidian/workspace.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Prise de notes/Jour 1 - fondamentaux.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../Prise de notes/Jour 1 - fondamentaux.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Prise de notes/Vocabulaire.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../Prise de notes/Vocabulaire.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MyWebApi.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MyWebApi.dir/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
