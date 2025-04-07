@@ -1,0 +1,270 @@
+{
+  "main": {
+    "id": "476bbdc69681f801",
+    "type": "split",
+    "children": [
+      {
+        "id": "ebc4da176eafe54c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b26b4a891a954c9c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Introduction.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Introduction"
+            }
+          },
+          {
+            "id": "e6744bb026fba5dd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Jour 1 - fondamentaux.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Jour 1 - fondamentaux"
+            }
+          },
+          {
+            "id": "26ea294c550d2172",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Jour 2 - Crud et requete.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Jour 2 - Crud et requete"
+            }
+          },
+          {
+            "id": "dbbad5f8ef01ce40",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Jour 3 - Relations et performance.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Jour 3 - Relations et performance"
+            }
+          },
+          {
+            "id": "4f70cb0f02f4513d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Jour 1 - fondamentaux.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Jour 1 - fondamentaux"
+            }
+          },
+          {
+            "id": "e308109a9ef971ea",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Jour 1 - fondamentaux.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Jour 1 - fondamentaux"
+            }
+          },
+          {
+            "id": "b7a378e5bd7ae289",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Jour 1 - fondamentaux.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Jour 1 - fondamentaux"
+            }
+          }
+        ],
+        "currentTab": 6
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "7c20b26bf4b788ad",
+    "type": "split",
+    "children": [
+      {
+        "id": "a96cd551ddd03f3d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d5e7c9ad49bc7b48",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "e11eabfa0886b0b3",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "f770bb01261ad230",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "5036c92898b4e0fb",
+    "type": "split",
+    "children": [
+      {
+        "id": "f20aa91a49cb91b6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fede865aeda7d4f0",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Introduction.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Introduction"
+            }
+          },
+          {
+            "id": "e5494f58d3ae947b",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Introduction.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Introduction"
+            }
+          },
+          {
+            "id": "857f7a17e92431c7",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "6e2e8aa50beaa109",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Introduction.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Introduction"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "b7a378e5bd7ae289",
+  "lastOpenFiles": [
+    "Vocabulaire.md",
+    "Jour 1 - fondamentaux.md",
+    "Outils/LINQ (Language Integrated Query).md",
+    "Outils",
+    "Pasted image 20250407092933.png",
+    "Pasted image 20250407092656.png",
+    "Introduction.md",
+    "Pasted image 20250407092140.png",
+    "Jour 4 -.md",
+    "Jour 3 - Relations et performance.md",
+    "Jour 2 - Crud et requete.md"
+  ]
+}
