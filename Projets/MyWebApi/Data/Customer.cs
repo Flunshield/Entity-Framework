@@ -25,4 +25,8 @@ public class Customer
     
     // Relation avec les commandes
     public List<Order> Orders { get; set; } = new();
+    
+    [MaxLength(500)]
+    public string Adresse { get; set; } = string.Empty;
+    
 }

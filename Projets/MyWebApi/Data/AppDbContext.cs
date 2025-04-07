@@ -13,6 +13,7 @@ public class AppDbContext : DbContext
     public DbSet<Order> Orders { get; set; } = null!;
     public DbSet<OrderItem> OrderItems { get; set; } = null!;
     public DbSet<Product> Products { get; set; } = null!;
+    public DbSet<PriceHistory> PriceHistories { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -22,6 +23,7 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<Order>().ToTable("Orders");
         modelBuilder.Entity<OrderItem>().ToTable("OrderItems");
         modelBuilder.Entity<Product>().ToTable("Products");
+        modelBuilder.Entity<PriceHistory>().ToTable("PriceHistories");
 
         // Configuration des relations et contraintes pour Category
         modelBuilder.Entity<Category>(entity =>
@@ -41,6 +43,7 @@ public class AppDbContext : DbContext
             entity.Property(e => e.Email).IsRequired().HasMaxLength(150);
             entity.Property(e => e.PhoneNumber).HasMaxLength(20);
             entity.HasIndex(e => e.Email).IsUnique();
+            entity.Property(e => e.Adresse).IsRequired().HasMaxLength(200);
         });
 
         // Configuration des relations et contraintes pour Order
@@ -85,6 +88,8 @@ public class AppDbContext : DbContext
             entity.Property(e => e.Name).IsRequired().HasMaxLength(200);
             entity.Property(e => e.Description).HasMaxLength(1000);
             entity.Property(e => e.Price).IsRequired().HasPrecision(18, 2);
+            entity.Property(e => e.Stock).IsRequired();
+            entity.Property(e => e.Note).IsRequired();
 
             // Relation avec Category (un-à-plusieurs)
             entity.HasOne(e => e.Category)
@@ -93,6 +98,23 @@ public class AppDbContext : DbContext
                   .OnDelete(DeleteBehavior.Restrict);
 
             entity.HasIndex(e => e.Name);
+        });
+        
+        // Configuration des relations et contraintes pour PriceHistory
+        modelBuilder.Entity<PriceHistory>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.Price).IsRequired().HasPrecision(18, 2);
+            entity.Property(e => e.StartDate).IsRequired();
+            entity.Property(e => e.EndDate);
+
+            entity.Property(e => e.ProductId).IsRequired();
+            
+            // Relation avec Product (un-à-plusieurs)
+            entity.HasOne(e => e.Product)
+                  .WithMany(p => p.PriceHistory)
+                  .HasForeignKey(e => e.ProductId)
+                  .OnDelete(DeleteBehavior.Cascade);
         });
     }
 }

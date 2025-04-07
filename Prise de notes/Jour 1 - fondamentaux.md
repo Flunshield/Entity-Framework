@@ -395,3 +395,84 @@ protected override void OnModelCreating(ModelBuilder modelBuilder) {     modelBu
 
 Entity Framework Core propose une variété de relations qui peuvent être utilisées pour refléter les modèles de données complexes dans les bases de données relationnelles. Ces relations peuvent être gérées facilement à l'aide des conventions d'EF ou d'une configuration explicite via la Fluent API.
 # Contexte et DB Set
+
+![[Pasted image 20250407133828.png]]
+
+## Cycle de vie d'un context
+
+Le cycle de vie d'un **DbContext** en Entity Framework (EF) décrit la manière dont un contexte de base de données est créé, utilisé et détruit. Le **DbContext** est l'objet principal pour interagir avec la base de données et gère les entités dans une session spécifique. Il joue un rôle central dans le suivi des modifications des entités et leur persistance dans la base de données.
+
+Voici un aperçu du cycle de vie d'un **DbContext** :
+### 1. **Création du DbContext**
+
+- Le **DbContext** est généralement créé à l'aide de la méthode `new` ou via l'injection de dépendances (DI) dans le cadre d'une application ASP.NET Core.
+- Lors de la création, le **DbContext** est configuré avec des informations sur la base de données (ex. chaîne de connexion) et les modèles de données (classes POCO).
+- Si vous utilisez l'injection de dépendances, il est généralement créé via une configuration dans le `Startup.cs` ou `Program.cs` d'une application ASP.NET Core.
+
+Exemple avec l'injection de dépendances :
+
+```csharp
+`public void ConfigureServices(IServiceCollection services) {     services.AddDbContext<ApplicationDbContext>(options =>         options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))); }`
+```
+### 2. **Utilisation du DbContext**
+
+- Une fois créé, le **DbContext** est utilisé pour interagir avec la base de données, notamment pour :
+    
+    - Effectuer des requêtes (`LINQ`, `Where()`, `Select()`, etc.).
+    - Ajouter, modifier ou supprimer des entités dans le contexte (`Add()`, `Update()`, `Remove()`, etc.).
+    - Suivre les modifications apportées aux entités et les préparer à être sauvegardées.
+- Le **DbContext** suit l'état des entités, c'est-à-dire s'ils sont ajoutés, modifiés ou supprimés. Cela se fait via un mécanisme appelé le **Change Tracker**.
+
+Exemple d'utilisation pour ajouter une entité :
+
+```csharp
+`var user = new User { Name = "John", Age = 30 }; dbContext.Users.Add(user); dbContext.SaveChanges();  // Enregistre les modifications dans la base de données`
+```
+### 3. **Sauvegarde des changements**
+
+- Lorsque des modifications sont apportées aux entités (ajout, mise à jour, suppression), vous devez appeler la méthode `SaveChanges()` pour que ces modifications soient persistes dans la base de données.
+- Lors de l'appel de `SaveChanges()`, EF génère des requêtes SQL pour insérer, mettre à jour ou supprimer les enregistrements en fonction des modifications observées dans le **DbContext**.
+
+Exemple :
+
+```csharp
+`dbContext.SaveChanges();`
+```
+### 4. **Détection des changements**
+
+- Le **DbContext** suit l'état de toutes les entités qu'il gère. Lorsqu'un objet est ajouté ou modifié, EF marque les entités comme ayant un état modifié.
+- La détection des changements est effectuée automatiquement à chaque appel de `SaveChanges()` ou manuellement à l'aide de méthodes comme `Entry()`.
+### 5. **Destruction du DbContext**
+
+- Une fois que vous avez terminé d'utiliser un **DbContext**, il doit être correctement détruit.
+- En ASP.NET Core, si vous utilisez l'injection de dépendances (DI), le **DbContext** est généralement "scopé" (scoped). Cela signifie qu'il est créé à chaque requête HTTP et est automatiquement détruit à la fin de la requête.
+- Si vous créez le **DbContext** manuellement, vous devrez le supprimer explicitement.
+
+### 6. **Garbage Collection**
+
+- Si le **DbContext** est créé manuellement (par exemple, avec `new`), il sera détruit lorsque la portée (scope) dans laquelle il a été créé sera terminée et sera collecté par le garbage collector de .NET.
+- En général, les **DbContext** ne doivent pas être utilisés pendant longtemps (ils doivent être de courte durée, par exemple, dans une méthode ou une requête HTTP) car ils maintiennent des ressources, et une durée de vie prolongée peut entraîner des fuites de mémoire et des problèmes de performance.
+### Bonnes pratiques pour le cycle de vie du DbContext :
+
+1. **Utilisation de l'injection de dépendances (DI)** :
+    - L'injection de dépendances est une bonne pratique pour gérer le cycle de vie du **DbContext**, car cela garantit qu'il est correctement créé et détruit à chaque requête HTTP.
+2. **Durée de vie du DbContext** :
+    - Le **DbContext** doit être utilisé de manière transitoire, c'est-à-dire qu'il doit être créé pour une unité de travail spécifique (par exemple, une requête HTTP ou une transaction). Cela permet de minimiser les risques de fuites de mémoire et améliore la gestion des performances.
+3. **Pas de DbContext long terme** :
+    - Évitez de conserver un **DbContext** pour une période prolongée, car il suit les changements de toutes les entités qu'il gère, ce qui peut entraîner une surcharge mémoire et des conflits si vous travaillez avec de nombreuses entités pendant longtemps.
+### Exemple d'injection de dépendances dans ASP.NET Core :
+
+```csharp
+`public void ConfigureServices(IServiceCollection services) {     // Configure DbContext avec une base de données SQL Server     services.AddDbContext<ApplicationDbContext>(options =>         options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));      // Autres services... }`
+```
+### En résumé :
+
+Le cycle de vie d'un **DbContext** suit les étapes suivantes :
+
+1. **Création** (via DI ou manuellement).
+2. **Utilisation** pour les requêtes et la gestion des entités.
+3. **Sauvegarde des changements** (avec `SaveChanges()`).
+4. **Destruction** après utilisation.
+
+Le bon usage du **DbContext** garantit des performances optimales et une gestion efficace de la mémoire dans votre application.
+

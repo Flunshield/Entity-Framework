@@ -25,4 +25,8 @@ public class Product
     
     // Relation avec les articles de commande
     public List<OrderItem> OrderItems { get; set; } = new();
+    
+    public int Note { get; set; }
+    
+    public List<PriceHistory> PriceHistory { get; set; } = null!;
 }
