@@ -10,5 +10,6 @@ public class Session
     public int EventId { get; set; }
     public Event Event { get; set; } = null!;
 
-    public List<Speaker> Speakers { get; set; } = new();
+    public int SpeakerId { get; set; }
+    public Speaker Speaker { get; set; } = null!;
 }

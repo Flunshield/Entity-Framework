@@ -10,23 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ddc772da-232b-4384-9020-4140a9454ea6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.EventManagementAPI.dir/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.EventManagementAPI.dir/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.EventManagementAPI.dir/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.EventManagementAPI.dir/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/DbContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Event.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Location.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Participant.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Session.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Speaker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Prise de notes/.obsidian/workspace.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../Prise de notes/.obsidian/workspace.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyWebApi/.idea/.idea.MyWebApi.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MyWebApi/.idea/.idea.MyWebApi.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyWebApi/obj/Debug/net8.0/MyWebApi.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../MyWebApi/obj/Debug/net8.0/MyWebApi.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyWebApi/obj/Debug/net8.0/MyWebApi.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../MyWebApi/obj/Debug/net8.0/MyWebApi.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyWebApi/obj/MyWebApi.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/../MyWebApi/obj/MyWebApi.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyWebApi/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/../MyWebApi/obj/rider.project.restore.info" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Configurations/EventConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Configurations/LocationConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Configurations/ParticipantConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Configurations/SessionConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Configurations/SpeakerConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.EventManagementAPI.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EventManagementAPI.dir/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +104,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1744098214514</updated>
-      <workItem from="1744098216612" duration="986000" />
+      <workItem from="1744098216612" duration="1788000" />
     </task>
     <servers />
   </component>
