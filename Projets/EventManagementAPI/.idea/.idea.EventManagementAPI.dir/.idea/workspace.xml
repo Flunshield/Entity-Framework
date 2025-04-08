@@ -10,13 +10,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ddc772da-232b-4384-9020-4140a9454ea6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Dtos/CreateEventDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dtos/EventDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dtos/LocationDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dtos/ParticipantDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dtos/SessionDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dtos/SpeakerDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controllers/EventController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controllers/ParticipantController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Interfaces/IEventService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Interfaces/ILocationService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Interfaces/IParticipantService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Interfaces/ISessionService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Interfaces/ISpeakerService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/EventService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/LocationService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/ParticipantService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/SessionService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/SpeakerService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EventManagementAPI.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EventManagementAPI.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Configurations/SpeakerConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Configurations/SpeakerConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/DbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/DbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dtos/SpeakerDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Dtos/SpeakerDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventManagementAPI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/EventManagementAPI.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20250408075728_InitialCreate.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/20250408075728_InitialCreate.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20250408080325_InitialFieldInDb.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/20250408080325_InitialFieldInDb.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20250408081907_InitialContraint.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/20250408081907_InitialContraint.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/AppDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Speaker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Speaker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,30 +42,30 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2vRBsUdDJlPiC8SwBN4MPNKULg7" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.EventManagementAPI: IIS Express">
     <configuration name="EventManagementAPI: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/EventManagementAPI.csproj" />
@@ -105,7 +121,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1744098214514</updated>
-      <workItem from="1744098216612" duration="2408000" />
+      <workItem from="1744098216612" duration="3950000" />
+      <workItem from="1744103019882" duration="2010000" />
     </task>
     <servers />
   </component>
