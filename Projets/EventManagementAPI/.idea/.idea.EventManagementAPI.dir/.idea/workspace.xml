@@ -10,11 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ddc772da-232b-4384-9020-4140a9454ea6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Configurations/EventConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Configurations/LocationConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Configurations/ParticipantConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Configurations/SessionConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Configurations/SpeakerConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dtos/CreateEventDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dtos/EventDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dtos/LocationDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dtos/ParticipantDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dtos/SessionDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dtos/SpeakerDto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EventManagementAPI.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EventManagementAPI.dir/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -104,7 +105,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1744098214514</updated>
-      <workItem from="1744098216612" duration="1788000" />
+      <workItem from="1744098216612" duration="2408000" />
     </task>
     <servers />
   </component>
