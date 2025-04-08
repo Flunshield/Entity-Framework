@@ -1,0 +1,30 @@
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: mariadb
+    environment:
+      MARIADB_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: eventManagementApi
+    ports:
+      - "3306:3306"
+    networks:
+      - app-network
+
+  phpmyadmin:
+    networks:
+      - app-network
+    image: phpmyadmin/phpmyadmin:5.2
+    container_name: phpmyadmin
+    environment:
+      PMA_ARBITRARY: 1
+    ports:
+      - "8080:80"
+    depends_on:
+      - mariadb
+
+volumes:
+  mariadb_data:
+
+networks:
+  app-network:
+    driver: bridge

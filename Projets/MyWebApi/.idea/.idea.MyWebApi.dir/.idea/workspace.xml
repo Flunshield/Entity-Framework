@@ -10,7 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4bb8b3f-c125-4e45-8900-557cce3e163c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MyWebApi.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MyWebApi.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Prise de notes/.obsidian/workspace.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../Prise de notes/.obsidian/workspace.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/MyWebApi.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/MyWebApi.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/MyWebApi.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/MyWebApi.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/MyWebApi.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/obj/MyWebApi.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +105,7 @@
       <option name="presentableId" value="Default" />
       <updated>1744014509681</updated>
       <workItem from="1744014511583" duration="11269000" />
+      <workItem from="1744097689941" duration="15000" />
     </task>
     <servers />
   </component>
