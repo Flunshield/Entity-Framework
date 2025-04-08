@@ -15,5 +15,6 @@ public class SpeakerConfiguration : IEntityTypeConfiguration<Speaker>
         builder.Property(s => s.LastName).IsRequired().HasMaxLength(50);
         builder.Property(s => s.Email).IsRequired().HasMaxLength(100);
         builder.Property(s => s.Company).HasMaxLength(100);
+        builder.Property(s => s.Role).HasDefaultValue("Speaker").HasMaxLength(50);
     }
 }

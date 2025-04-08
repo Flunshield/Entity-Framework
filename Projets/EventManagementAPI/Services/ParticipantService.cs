@@ -22,7 +22,10 @@ public class ParticipantService : IParticipantService
             {
                 Id = p.Id,
                 FullName = p.FullName,
-                Email = p.Email
+                Email = p.Email,
+                Company = p.Company,
+                JobTitle = p.JobTitle,
+                Role = p.Role
             })
             .ToListAsync();
     }
@@ -36,7 +39,10 @@ public class ParticipantService : IParticipantService
         {
             Id = participant.Id,
             FullName = participant.FullName,
-            Email = participant.Email
+            Email = participant.Email,
+            Company = participant.Company,
+            JobTitle = participant.JobTitle,
+            Role = participant.Role
         };
     }
 

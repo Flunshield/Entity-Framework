@@ -24,7 +24,10 @@ public class SpeakerService : ISpeakerService
                 FirstName = s.FirstName,
                 LastName = s.LastName,
                 Email = s.Email,
-                Bio = s.Bio
+                Bio = s.Bio,
+                FullName = $"{s.FirstName} {s.LastName}",
+                Company = s.Company,
+                Role = s.Role
             })
             .ToListAsync();
     }
@@ -40,7 +43,10 @@ public class SpeakerService : ISpeakerService
             FirstName = speaker.FirstName,
             LastName = speaker.LastName,
             Email = speaker.Email,
-            Bio = speaker.Bio
+            Bio = speaker.Bio,
+            FullName = $"{speaker.FirstName} {speaker.LastName}",
+            Company = speaker.Company,
+            Role = speaker.Role
         };
     }
 

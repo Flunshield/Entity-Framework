@@ -8,6 +8,6 @@ public class Speaker
     public string Bio { get; set; } = null!;
     public string Email { get; set; } = null!;
     public string Company { get; set; } = null!;
-
+    public string Role { get; set; } = "Speaker";
     public List<Session> Sessions { get; set; } = new();
 }
