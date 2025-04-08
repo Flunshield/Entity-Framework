@@ -4,16 +4,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EventManagementAPI.Data;
 
-public class AppDbContext : DbContext
+public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
 {
-    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
-
     public DbSet<Event> Events { get; set; } = null!;
     public DbSet<Participant> Participants { get; set; } = null!;
     public DbSet<Session> Sessions { get; set; } = null!;
     public DbSet<Speaker> Speakers { get; set; } = null!;
     public DbSet<Location> Locations { get; set; } = null!;
-    public DbSet<Category> Categories { get; set; } = null!;
+    public DbSet<Category> Category { get; set; } = null!;
     public DbSet<Rating> Ratings { get; set; } = null!;
     public DbSet<Room> Rooms { get; set; } = null!;
     public DbSet<EventParticipant> EventParticipants { get; set; } = null!;
@@ -25,6 +23,7 @@ public class AppDbContext : DbContext
         modelBuilder.ApplyConfiguration(new SessionConfiguration());
         modelBuilder.ApplyConfiguration(new SpeakerConfiguration());
         modelBuilder.ApplyConfiguration(new ParticipantConfiguration());
+        modelBuilder.ApplyConfiguration(new CategoryConfiguration());
         
         // Configuration pour EventParticipant
         modelBuilder.Entity<EventParticipant>()

@@ -29,14 +29,6 @@ builder.Services.AddSwaggerGen(c => {
     c.IncludeXmlComments(xmlPath);
 });
 
-builder.Services.AddCors(options => {
-    options.AddDefaultPolicy(policy => {
-        policy.AllowAnyOrigin()
-              .AllowAnyMethod()
-              .AllowAnyHeader();
-    });
-});
-
 // Repositories
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
@@ -46,6 +38,9 @@ builder.Services.AddScoped<IEventService, EventService>();
 builder.Services.AddScoped<ISessionService, SessionService>();
 builder.Services.AddScoped<IParticipantService, ParticipantService>();
 builder.Services.AddScoped<ISpeakerService, SpeakerService>();
+
+builder.Services.AddScoped<ILocationRepository, LocationRepository>();
+builder.Services.AddScoped<ILocationService, LocationService>();
 
 // DB Context
 builder.Services.AddDbContext<AppDbContext>(options => {
@@ -62,9 +57,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
     
     // Exécuter les migrations en développement
-    using var scope = app.Services.CreateScope();
-    var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    dbContext.Database.Migrate();
+    using (var scope = app.Services.CreateScope())
+    {
+        var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+        dbContext.Database.Migrate();
+    }
 }
 
 // Gestion des exceptions (doit être au début du pipeline)

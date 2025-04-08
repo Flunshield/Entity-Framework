@@ -12,4 +12,5 @@ public class LocationDto
     [Required(ErrorMessage = "L'adresse est obligatoire")]
     [StringLength(100, ErrorMessage = "L'adresse ne peut pas dépasser 200 caractères")]
     public string Address { get; set; } = null!;
+    public string City { get; set; } = null!;
 }

@@ -81,6 +81,7 @@ namespace EventManagementAPI.Services
         /// </remarks>
         public async Task<LocationDto> CreateLocationAsync(LocationDto locationDto)
         {
+            
             // Basic validation example (move to dedicated validator later)
             if (string.IsNullOrWhiteSpace(locationDto.Name))
             {
@@ -91,7 +92,8 @@ namespace EventManagementAPI.Services
             var location = new Location
             {
                 Name = locationDto.Name,
-                Address = locationDto.Address
+                Address = locationDto.Address,
+                City = locationDto.City
             };
 
             await _locationRepository.AddAsync(location);

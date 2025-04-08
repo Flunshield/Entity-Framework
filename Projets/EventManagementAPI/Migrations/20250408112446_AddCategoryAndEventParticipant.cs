@@ -20,7 +20,7 @@ namespace EventManagementAPI.Migrations
                 table: "EventParticipants");
 
             migrationBuilder.DropForeignKey(
-                name: "FK_Events_Categories_CategoryId",
+                name: "FK_Events_Category_CategoryId",
                 table: "Events");
 
             migrationBuilder.DropForeignKey(
@@ -207,10 +207,10 @@ namespace EventManagementAPI.Migrations
                 onDelete: ReferentialAction.Cascade);
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Events_Categories_CategoryId",
+                name: "FK_Events_Category_CategoryId",
                 table: "Events",
                 column: "CategoryId",
-                principalTable: "Categories",
+                principalTable: "Category",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
 
@@ -265,7 +265,7 @@ namespace EventManagementAPI.Migrations
                 table: "EventParticipants");
 
             migrationBuilder.DropForeignKey(
-                name: "FK_Events_Categories_CategoryId",
+                name: "FK_Events_Category_CategoryId",
                 table: "Events");
 
             migrationBuilder.DropForeignKey(
@@ -417,10 +417,10 @@ namespace EventManagementAPI.Migrations
                 onDelete: ReferentialAction.Cascade);
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Events_Categories_CategoryId",
+                name: "FK_Events_Category_CategoryId",
                 table: "Events",
                 column: "CategoryId",
-                principalTable: "Categories",
+                principalTable: "Category",
                 principalColumn: "Id");
 
             migrationBuilder.AddForeignKey(

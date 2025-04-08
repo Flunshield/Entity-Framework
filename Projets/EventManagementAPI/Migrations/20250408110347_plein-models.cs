@@ -24,7 +24,7 @@ namespace EventManagementAPI.Migrations
                 nullable: true);
 
             migrationBuilder.CreateTable(
-                name: "Categories",
+                name: "Category",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -36,7 +36,7 @@ namespace EventManagementAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Categories", x => x.Id);
+                    table.PrimaryKey("PK_Category", x => x.Id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -119,10 +119,10 @@ namespace EventManagementAPI.Migrations
                 column: "LocationId");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Events_Categories_CategoryId",
+                name: "FK_Events_Category_CategoryId",
                 table: "Events",
                 column: "CategoryId",
-                principalTable: "Categories",
+                principalTable: "Category",
                 principalColumn: "Id");
 
             migrationBuilder.AddForeignKey(
@@ -137,7 +137,7 @@ namespace EventManagementAPI.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Events_Categories_CategoryId",
+                name: "FK_Events_Category_CategoryId",
                 table: "Events");
 
             migrationBuilder.DropForeignKey(
@@ -145,7 +145,7 @@ namespace EventManagementAPI.Migrations
                 table: "Sessions");
 
             migrationBuilder.DropTable(
-                name: "Categories");
+                name: "Category");
 
             migrationBuilder.DropTable(
                 name: "Rating");

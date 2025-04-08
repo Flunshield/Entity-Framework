@@ -43,7 +43,7 @@ namespace EventManagementAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Category");
                 });
 
             modelBuilder.Entity("EventManagementAPI.Models.Event", b =>

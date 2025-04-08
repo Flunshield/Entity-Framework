@@ -4,11 +4,5 @@ using EventManagementAPI.Models;
 
 namespace EventManagementAPI.Repositories
 {
-    public class LocationRepository : Repository<Location>, ILocationRepository
-    {
-        public LocationRepository(AppDbContext context) : base(context)
-        {
-        }
-        
-    }
+    public class LocationRepository(AppDbContext context) : Repository<Location>(context), ILocationRepository;
 }

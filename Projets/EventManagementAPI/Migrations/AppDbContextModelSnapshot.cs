@@ -22,7 +22,7 @@ namespace EventManagementAPI.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("Category", b =>
+            modelBuilder.Entity("EventManagementAPI.Models.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -40,7 +40,27 @@ namespace EventManagementAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Category");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Events related to technology and innovation.",
+                            Name = "Technology"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "Events focused on health and wellness.",
+                            Name = "Health"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "Events related to education and learning.",
+                            Name = "Education"
+                        });
                 });
 
             modelBuilder.Entity("EventManagementAPI.Models.Event", b =>
@@ -134,6 +154,36 @@ namespace EventManagementAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Locations");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "2 Place de la Porte Maillot",
+                            City = "Paris",
+                            Name = "Palais des Congrès"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "5 Avenue des Sciences",
+                            City = "Lyon",
+                            Name = "Centre de Conférences Internationales"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "123 Boulevard des Événements",
+                            City = "Marseille",
+                            Name = "Parc des Expositions"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Address = "45 Rue de l'Innovation",
+                            City = "Bordeaux",
+                            Name = "Campus Numérique"
+                        });
                 });
 
             modelBuilder.Entity("EventManagementAPI.Models.Participant", b =>
@@ -209,6 +259,31 @@ namespace EventManagementAPI.Migrations
                     b.HasIndex("SessionId");
 
                     b.ToTable("Ratings");
+                });
+
+            modelBuilder.Entity("EventManagementAPI.Models.Room", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Capacity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LocationId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LocationId");
+
+                    b.ToTable("Rooms");
                 });
 
             modelBuilder.Entity("EventManagementAPI.Models.Session", b =>
@@ -299,31 +374,6 @@ namespace EventManagementAPI.Migrations
                     b.ToTable("Speakers");
                 });
 
-            modelBuilder.Entity("Room", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("Capacity")
-                        .HasColumnType("int");
-
-                    b.Property<int>("LocationId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("LocationId");
-
-                    b.ToTable("Rooms");
-                });
-
             modelBuilder.Entity("SessionSpeaker", b =>
                 {
                     b.Property<int>("SessionsId")
@@ -341,7 +391,7 @@ namespace EventManagementAPI.Migrations
 
             modelBuilder.Entity("EventManagementAPI.Models.Event", b =>
                 {
-                    b.HasOne("Category", "Category")
+                    b.HasOne("EventManagementAPI.Models.Category", "Category")
                         .WithMany("Events")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -400,24 +450,7 @@ namespace EventManagementAPI.Migrations
                     b.Navigation("Session");
                 });
 
-            modelBuilder.Entity("EventManagementAPI.Models.Session", b =>
-                {
-                    b.HasOne("EventManagementAPI.Models.Event", "Event")
-                        .WithMany("Sessions")
-                        .HasForeignKey("EventId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Room", "Room")
-                        .WithMany("Sessions")
-                        .HasForeignKey("RoomId");
-
-                    b.Navigation("Event");
-
-                    b.Navigation("Room");
-                });
-
-            modelBuilder.Entity("Room", b =>
+            modelBuilder.Entity("EventManagementAPI.Models.Room", b =>
                 {
                     b.HasOne("EventManagementAPI.Models.Location", "Location")
                         .WithMany()
@@ -426,6 +459,23 @@ namespace EventManagementAPI.Migrations
                         .IsRequired();
 
                     b.Navigation("Location");
+                });
+
+            modelBuilder.Entity("EventManagementAPI.Models.Session", b =>
+                {
+                    b.HasOne("EventManagementAPI.Models.Event", "Event")
+                        .WithMany("Sessions")
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EventManagementAPI.Models.Room", "Room")
+                        .WithMany("Sessions")
+                        .HasForeignKey("RoomId");
+
+                    b.Navigation("Event");
+
+                    b.Navigation("Room");
                 });
 
             modelBuilder.Entity("SessionSpeaker", b =>
@@ -443,7 +493,7 @@ namespace EventManagementAPI.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Category", b =>
+            modelBuilder.Entity("EventManagementAPI.Models.Category", b =>
                 {
                     b.Navigation("Events");
                 });
@@ -465,14 +515,14 @@ namespace EventManagementAPI.Migrations
                     b.Navigation("Events");
                 });
 
+            modelBuilder.Entity("EventManagementAPI.Models.Room", b =>
+                {
+                    b.Navigation("Sessions");
+                });
+
             modelBuilder.Entity("EventManagementAPI.Models.Session", b =>
                 {
                     b.Navigation("Ratings");
-                });
-
-            modelBuilder.Entity("Room", b =>
-                {
-                    b.Navigation("Sessions");
                 });
 #pragma warning restore 612, 618
         }
