@@ -1,4 +1,6 @@
-﻿namespace EventManagementAPI.Dtos;
+﻿using EventManagementAPI.Models;
+
+namespace EventManagementAPI.Dtos;
 
 public class SessionDto
 {
@@ -8,5 +10,5 @@ public class SessionDto
     public DateTime EndTime { get; set; }
 
     public int EventId { get; set; }
-    public int SpeakerId { get; set; }
+    public ICollection<Speaker> SpeakerId { get; set; }
 }

@@ -11,14 +11,14 @@ public class LocationController(ILocationService locationService) : ControllerBa
     [HttpGet]
     public async Task<ActionResult<IEnumerable<LocationDto>>> GetLocations()
     {
-        var locations = await locationService.GetAllAsync();
+        var locations = await locationService.GetAllLocationsAsync();
         return Ok(locations);
     }
 
     [HttpGet("{id}")]
     public async Task<ActionResult<LocationDto>> GetLocation(int id)
     {
-        var locationDto = await locationService.GetByIdAsync(id);
+        var locationDto = await locationService.GetLocationByIdAsync(id);
         if (locationDto == null) return NotFound();
 
         return Ok(locationDto);
@@ -27,7 +27,7 @@ public class LocationController(ILocationService locationService) : ControllerBa
     [HttpPost]
     public async Task<ActionResult<LocationDto>> CreateLocation(LocationDto locationDto)
     {
-        var createdLocation = await locationService.CreateAsync(locationDto);
+        var createdLocation = await locationService.CreateLocationAsync(locationDto);
         return CreatedAtAction(nameof(GetLocation), new { id = createdLocation.Id }, createdLocation);
     }
 
@@ -36,7 +36,7 @@ public class LocationController(ILocationService locationService) : ControllerBa
     {
         if (id != locationDto.Id) return BadRequest();
 
-        var success = await locationService.UpdateAsync(id, locationDto);
+        var success = await locationService.UpdateLocationAsync(id, locationDto);
         if (!success) return NotFound();
 
         return NoContent();
@@ -45,7 +45,7 @@ public class LocationController(ILocationService locationService) : ControllerBa
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteLocation(int id)
     {
-        var success = await locationService.DeleteAsync(id);
+        var success = await locationService.DeleteLocationAsync(id);
         if (!success) return NotFound();
 
         return NoContent();

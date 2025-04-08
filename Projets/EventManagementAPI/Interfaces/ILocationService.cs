@@ -1,12 +1,13 @@
 ﻿using EventManagementAPI.Dtos;
 
-namespace EventManagementAPI.Interfaces;
-
-public interface ILocationService
+namespace EventManagementAPI.Interfaces
 {
-    Task<IEnumerable<LocationDto>> GetAllAsync();
-    Task<LocationDto?> GetByIdAsync(int id);
-    Task<LocationDto> CreateAsync(LocationDto locationDto);
-    Task<bool> UpdateAsync(int id, LocationDto locationDto);
-    Task<bool> DeleteAsync(int id);
+    public interface ILocationService
+    {
+        Task<IEnumerable<LocationDto>> GetAllLocationsAsync();
+        Task<LocationDto?> GetLocationByIdAsync(int id);
+        Task<LocationDto> CreateLocationAsync(LocationDto locationDto);
+        Task<bool> UpdateLocationAsync(int id, LocationDto locationDto);
+        Task<bool> DeleteLocationAsync(int id);
+    }
 }

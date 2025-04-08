@@ -11,9 +11,10 @@ public class SessionConfiguration : IEntityTypeConfiguration<Session>
         builder.HasKey(s => s.Id);
         builder.Property(s => s.Title).IsRequired().HasMaxLength(100);
 
-        // One-to-Many: Speaker -> Sessions
-        builder.HasOne(s => s.Speaker)
+        // Many-to-Many: Session <-> Speaker
+        builder.HasMany(s => s.Speakers)
             .WithMany(sp => sp.Sessions)
-            .HasForeignKey(s => s.SpeakerId);
+            .UsingEntity(j => j.ToTable("SessionSpeaker"));
+        
     }
 }

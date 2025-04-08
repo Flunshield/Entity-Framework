@@ -1,79 +1,106 @@
-﻿using EventManagementAPI.Data;
-using EventManagementAPI.Dtos;
+﻿using EventManagementAPI.Dtos;
 using EventManagementAPI.Interfaces;
 using EventManagementAPI.Models;
-using Microsoft.EntityFrameworkCore;
 
-namespace EventManagementAPI.Services;
-
-public class LocationService : ILocationService
+namespace EventManagementAPI.Services
 {
-    private readonly AppDbContext _context;
-
-    public LocationService(AppDbContext context)
+    public class LocationService : ILocationService
     {
-        _context = context;
-    }
+        private readonly ILocationRepository _locationRepository;
+        // Consider adding ILogger for logging
 
-    public async Task<IEnumerable<LocationDto>> GetAllAsync()
-    {
-        return await _context.Locations
-            .Select(l => new LocationDto
+        public LocationService(ILocationRepository locationRepository)
+        {
+            _locationRepository = locationRepository ?? throw new ArgumentNullException(nameof(locationRepository));
+        }
+
+        public async Task<IEnumerable<LocationDto>> GetAllLocationsAsync()
+        {
+            var locations = await _locationRepository.GetAllAsync();
+            // Manual mapping (Consider AutoMapper for larger projects)
+            return locations.Select(l => new LocationDto
             {
                 Id = l.Id,
                 Name = l.Name,
-                Address = l.Address,
-            })
-            .ToListAsync();
-    }
+                Address = l.Address
+            });
+        }
 
-    public async Task<LocationDto?> GetByIdAsync(int id)
-    {
-        var location = await _context.Locations.FindAsync(id);
-        if (location == null) return null;
-
-        return new LocationDto
+        public async Task<LocationDto?> GetLocationByIdAsync(int id)
         {
-            Id = location.Id,
-            Name = location.Name,
-            Address = location.Address,
-        };
-    }
+            var location = await _locationRepository.GetByIdAsync(id);
+            if (location == null)
+            {
+                return null;
+            }
 
-    public async Task<LocationDto> CreateAsync(LocationDto locationDto)
-    {
-        var entity = new Location
+            // Manual mapping
+            return new LocationDto
+            {
+                Id = location.Id,
+                Name = location.Name,
+                Address = location.Address
+            };
+        }
+
+        public async Task<LocationDto> CreateLocationAsync(LocationDto locationDto)
         {
-            Name = locationDto.Name,
-            Address = locationDto.Address,
-        };
+            // Basic validation example (move to dedicated validator later)
+            if (string.IsNullOrWhiteSpace(locationDto.Name))
+            {
+                throw new ArgumentException("Location name cannot be empty.", nameof(locationDto.Name));
+            }
 
-        _context.Locations.Add(entity);
-        await _context.SaveChangesAsync();
+            // Manual mapping
+            var location = new Location
+            {
+                Name = locationDto.Name,
+                Address = locationDto.Address
+            };
 
-        locationDto.Id = entity.Id;
-        return locationDto;
-    }
+            await _locationRepository.AddAsync(location);
+            await _locationRepository.SaveChangesAsync(); // Assuming SaveChanges is called here
 
-    public async Task<bool> UpdateAsync(int id, LocationDto locationDto)
-    {
-        var entity = await _context.Locations.FindAsync(id);
-        if (entity == null) return false;
+            // Update DTO with generated ID and return
+            locationDto.Id = location.Id;
+            return locationDto;
+        }
 
-        entity.Name = locationDto.Name;
-        entity.Address = locationDto.Address;
+        public async Task<bool> UpdateLocationAsync(int id, LocationDto locationDto)
+        {
+            var location = await _locationRepository.GetByIdAsync(id);
+            if (location == null)
+            {
+                return false; // Indicate not found
+            }
 
-        await _context.SaveChangesAsync();
-        return true;
-    }
+            // Basic validation
+            if (string.IsNullOrWhiteSpace(locationDto.Name))
+            {
+                throw new ArgumentException("Location name cannot be empty.", nameof(locationDto.Name));
+            }
 
-    public async Task<bool> DeleteAsync(int id)
-    {
-        var entity = await _context.Locations.FindAsync(id);
-        if (entity == null) return false;
+            // Manual mapping
+            location.Name = locationDto.Name;
+            location.Address = locationDto.Address;
 
-        _context.Locations.Remove(entity);
-        await _context.SaveChangesAsync();
-        return true;
+            // The Repository doesn't have an Update method in this setup.
+            // EF Core tracks changes, so SaveChangesAsync is enough.
+            await _locationRepository.SaveChangesAsync();
+            return true; // Indicate success
+        }
+
+        public async Task<bool> DeleteLocationAsync(int id)
+        {
+            var location = await _locationRepository.GetByIdAsync(id);
+            if (location == null)
+            {
+                return false; // Indicate not found
+            }
+
+            _locationRepository.Remove(location);
+            await _locationRepository.SaveChangesAsync();
+            return true; // Indicate success
+        }
     }
 }

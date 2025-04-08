@@ -4,6 +4,7 @@ using EventManagementAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EventManagementAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250408110347_plein-models")]
+    partial class pleinmodels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,7 +54,7 @@ namespace EventManagementAPI.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CategoryId")
+                    b.Property<int?>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
@@ -70,9 +73,6 @@ namespace EventManagementAPI.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 
-                    b.Property<int?>("ParticipantId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime(6)");
 
@@ -82,31 +82,7 @@ namespace EventManagementAPI.Migrations
 
                     b.HasIndex("LocationId");
 
-                    b.HasIndex("ParticipantId");
-
                     b.ToTable("Events");
-                });
-
-            modelBuilder.Entity("EventManagementAPI.Models.EventParticipant", b =>
-                {
-                    b.Property<int>("EventId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ParticipantId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("AttendanceStatus")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<DateTime>("RegistrationDate")
-                        .HasColumnType("datetime(6)");
-
-                    b.HasKey("EventId", "ParticipantId");
-
-                    b.HasIndex("ParticipantId");
-
-                    b.ToTable("EventParticipants");
                 });
 
             modelBuilder.Entity("EventManagementAPI.Models.Location", b =>
@@ -154,18 +130,15 @@ namespace EventManagementAPI.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 
-                    b.Property<string>("FirstName")
+                    b.Property<string>("FullName")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("JobTitle")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("longtext");
 
                     b.Property<string>("Phone")
                         .IsRequired()
@@ -208,7 +181,7 @@ namespace EventManagementAPI.Migrations
 
                     b.HasIndex("SessionId");
 
-                    b.ToTable("Ratings");
+                    b.ToTable("Rating");
                 });
 
             modelBuilder.Entity("EventManagementAPI.Models.Session", b =>
@@ -232,6 +205,9 @@ namespace EventManagementAPI.Migrations
                     b.Property<int?>("RoomId")
                         .HasColumnType("int");
 
+                    b.Property<int>("SpeakerId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("datetime(6)");
 
@@ -245,6 +221,8 @@ namespace EventManagementAPI.Migrations
                     b.HasIndex("EventId");
 
                     b.HasIndex("RoomId");
+
+                    b.HasIndex("SpeakerId");
 
                     b.ToTable("Sessions");
                 });
@@ -299,6 +277,21 @@ namespace EventManagementAPI.Migrations
                     b.ToTable("Speakers");
                 });
 
+            modelBuilder.Entity("EventParticipant", b =>
+                {
+                    b.Property<int>("EventsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ParticipantsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("EventsId", "ParticipantsId");
+
+                    b.HasIndex("ParticipantsId");
+
+                    b.ToTable("EventParticipants", (string)null);
+                });
+
             modelBuilder.Entity("Room", b =>
                 {
                     b.Property<int>("Id")
@@ -321,31 +314,14 @@ namespace EventManagementAPI.Migrations
 
                     b.HasIndex("LocationId");
 
-                    b.ToTable("Rooms");
-                });
-
-            modelBuilder.Entity("SessionSpeaker", b =>
-                {
-                    b.Property<int>("SessionsId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SpeakersId")
-                        .HasColumnType("int");
-
-                    b.HasKey("SessionsId", "SpeakersId");
-
-                    b.HasIndex("SpeakersId");
-
-                    b.ToTable("SessionSpeaker", (string)null);
+                    b.ToTable("Room");
                 });
 
             modelBuilder.Entity("EventManagementAPI.Models.Event", b =>
                 {
-                    b.HasOne("Category", "Category")
+                    b.HasOne("Category", null)
                         .WithMany("Events")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CategoryId");
 
                     b.HasOne("EventManagementAPI.Models.Location", "Location")
                         .WithMany("Events")
@@ -353,32 +329,7 @@ namespace EventManagementAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EventManagementAPI.Models.Participant", null)
-                        .WithMany("Events")
-                        .HasForeignKey("ParticipantId");
-
-                    b.Navigation("Category");
-
                     b.Navigation("Location");
-                });
-
-            modelBuilder.Entity("EventManagementAPI.Models.EventParticipant", b =>
-                {
-                    b.HasOne("EventManagementAPI.Models.Event", "Event")
-                        .WithMany("Participants")
-                        .HasForeignKey("EventId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("EventManagementAPI.Models.Participant", "Participant")
-                        .WithMany()
-                        .HasForeignKey("ParticipantId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Event");
-
-                    b.Navigation("Participant");
                 });
 
             modelBuilder.Entity("EventManagementAPI.Models.Rating", b =>
@@ -390,7 +341,7 @@ namespace EventManagementAPI.Migrations
                         .IsRequired();
 
                     b.HasOne("EventManagementAPI.Models.Session", "Session")
-                        .WithMany("Ratings")
+                        .WithMany()
                         .HasForeignKey("SessionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -408,13 +359,34 @@ namespace EventManagementAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Room", "Room")
+                    b.HasOne("Room", null)
                         .WithMany("Sessions")
                         .HasForeignKey("RoomId");
 
+                    b.HasOne("EventManagementAPI.Models.Speaker", "Speaker")
+                        .WithMany("Sessions")
+                        .HasForeignKey("SpeakerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Event");
 
-                    b.Navigation("Room");
+                    b.Navigation("Speaker");
+                });
+
+            modelBuilder.Entity("EventParticipant", b =>
+                {
+                    b.HasOne("EventManagementAPI.Models.Event", null)
+                        .WithMany()
+                        .HasForeignKey("EventsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EventManagementAPI.Models.Participant", null)
+                        .WithMany()
+                        .HasForeignKey("ParticipantsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Room", b =>
@@ -428,21 +400,6 @@ namespace EventManagementAPI.Migrations
                     b.Navigation("Location");
                 });
 
-            modelBuilder.Entity("SessionSpeaker", b =>
-                {
-                    b.HasOne("EventManagementAPI.Models.Session", null)
-                        .WithMany()
-                        .HasForeignKey("SessionsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("EventManagementAPI.Models.Speaker", null)
-                        .WithMany()
-                        .HasForeignKey("SpeakersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("Category", b =>
                 {
                     b.Navigation("Events");
@@ -450,8 +407,6 @@ namespace EventManagementAPI.Migrations
 
             modelBuilder.Entity("EventManagementAPI.Models.Event", b =>
                 {
-                    b.Navigation("Participants");
-
                     b.Navigation("Sessions");
                 });
 
@@ -460,14 +415,9 @@ namespace EventManagementAPI.Migrations
                     b.Navigation("Events");
                 });
 
-            modelBuilder.Entity("EventManagementAPI.Models.Participant", b =>
+            modelBuilder.Entity("EventManagementAPI.Models.Speaker", b =>
                 {
-                    b.Navigation("Events");
-                });
-
-            modelBuilder.Entity("EventManagementAPI.Models.Session", b =>
-                {
-                    b.Navigation("Ratings");
+                    b.Navigation("Sessions");
                 });
 
             modelBuilder.Entity("Room", b =>

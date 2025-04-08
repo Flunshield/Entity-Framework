@@ -25,7 +25,7 @@ public class SessionService : ISessionService
                 StartTime = s.StartTime,
                 EndTime = s.EndTime,
                 EventId = s.EventId,
-                SpeakerId = s.SpeakerId
+                SpeakerId = s.Speakers
             })
             .ToListAsync();
     }
@@ -42,7 +42,7 @@ public class SessionService : ISessionService
             StartTime = session.StartTime,
             EndTime = session.EndTime,
             EventId = session.EventId,
-            SpeakerId = session.SpeakerId
+            SpeakerId = session.Speakers
         };
     }
 
@@ -54,7 +54,7 @@ public class SessionService : ISessionService
             StartTime = sessionDto.StartTime,
             EndTime = sessionDto.EndTime,
             EventId = sessionDto.EventId,
-            SpeakerId = sessionDto.SpeakerId
+            Speakers = sessionDto.SpeakerId
         };
 
         _context.Sessions.Add(entity);
@@ -73,7 +73,7 @@ public class SessionService : ISessionService
         entity.StartTime = sessionDto.StartTime;
         entity.EndTime = sessionDto.EndTime;
         entity.EventId = sessionDto.EventId;
-        entity.SpeakerId = sessionDto.SpeakerId;
+        entity.Speakers = sessionDto.SpeakerId;
 
         await _context.SaveChangesAsync();
         return true;

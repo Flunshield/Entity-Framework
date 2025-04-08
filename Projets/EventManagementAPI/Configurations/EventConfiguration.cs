@@ -18,11 +18,6 @@ public class EventConfiguration : IEntityTypeConfiguration<Event>
             .WithOne(s => s.Event)
             .HasForeignKey(s => s.EventId);
 
-        // Many-to-Many: Event <-> Participant
-        builder.HasMany(e => e.Participants)
-            .WithMany(p => p.Events)
-            .UsingEntity(j => j.ToTable("EventParticipants"));
-
         // One-to-Many: Location -> Events
         builder.HasOne(e => e.Location)
             .WithMany(l => l.Events)

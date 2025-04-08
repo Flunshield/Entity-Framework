@@ -21,7 +21,8 @@ public class ParticipantService : IParticipantService
             .Select(p => new ParticipantDto
             {
                 Id = p.Id,
-                FullName = p.FullName,
+                FirstName = p.FirstName,
+                LastName = p.LastName,
                 Email = p.Email,
                 Company = p.Company,
                 JobTitle = p.JobTitle,
@@ -38,7 +39,6 @@ public class ParticipantService : IParticipantService
         return new ParticipantDto
         {
             Id = participant.Id,
-            FullName = participant.FullName,
             Email = participant.Email,
             Company = participant.Company,
             JobTitle = participant.JobTitle,
@@ -50,7 +50,6 @@ public class ParticipantService : IParticipantService
     {
         var entity = new Participant
         {
-            FullName = participantDto.FullName,
             Email = participantDto.Email
         };
 
@@ -66,7 +65,6 @@ public class ParticipantService : IParticipantService
         var entity = await _context.Participants.FindAsync(id);
         if (entity == null) return false;
 
-        entity.FullName = participantDto.FullName;
         entity.Email = participantDto.Email;
 
         await _context.SaveChangesAsync();
