@@ -43,3 +43,6 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+# IntelliJ IDEA
+.idea/
