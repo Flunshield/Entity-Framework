@@ -1,6 +1,6 @@
 using EventManagementAPI.Models;
 
-namespace EventManagementAPI.Interfaces
+namespace EventManagementAPI.Repository
 {
     public interface ILocationRepository : IRepository<Location>
     {

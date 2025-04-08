@@ -8,9 +8,7 @@
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public int EventId { get; set; }
-        public int? RoomId { get; set; } // Ajout référence Room
-        
-        // Navigation properties
+        public int? RoomId { get; set; }
         public Event Event { get; set; } = null!;
         public Room? Room { get; set; }
         public ICollection<Speaker> Speakers { get; set; } = new List<Speaker>();

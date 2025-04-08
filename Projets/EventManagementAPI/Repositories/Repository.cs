@@ -2,6 +2,7 @@ using EventManagementAPI.Data;
 using EventManagementAPI.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
+using EventManagementAPI.Repository;
 
 namespace EventManagementAPI.Repositories
 {
@@ -50,13 +51,6 @@ namespace EventManagementAPI.Repositories
         {
             _dbSet.RemoveRange(entities);
         }
-
-        // If using explicit UpdateAsync in IRepository:
-        // public virtual Task UpdateAsync(T entity)
-        // {
-        //     _context.Entry(entity).State = EntityState.Modified;
-        //     return Task.CompletedTask;
-        // }
 
         public async Task<int> SaveChangesAsync()
         {

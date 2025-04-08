@@ -18,6 +18,7 @@ public class EventController : ControllerBase
     /// <summary>
     /// Récupère tous les événements
     /// </summary>
+    /// <returns></returns>
     [HttpGet]
     public async Task<ActionResult<IEnumerable<EventDto>>> GetEvents()
     {
@@ -28,6 +29,8 @@ public class EventController : ControllerBase
     /// <summary>
     /// Récupère un événement par son ID
     /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     [HttpGet("{id}")]
     public async Task<ActionResult<EventDto>> GetEvent(int id)
     {
@@ -40,6 +43,8 @@ public class EventController : ControllerBase
     /// <summary>
     /// Crée un nouvel événement
     /// </summary>
+    /// <param name="eventDto"></param>
+    /// <returns></returns>
     [HttpPost]
     public async Task<ActionResult<EventDto>> CreateEvent(EventDto eventDto)
     {
@@ -50,6 +55,9 @@ public class EventController : ControllerBase
     /// <summary>
     /// Met à jour un événement existant
     /// </summary>
+    /// <param name="id"></param>
+    /// <param name="eventDto"></param>
+    /// <returns></returns>
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdateEvent(int id, EventDto eventDto)
     {
@@ -64,6 +72,8 @@ public class EventController : ControllerBase
     /// <summary>
     /// Supprime un événement
     /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteEvent(int id)
     {
@@ -74,8 +84,15 @@ public class EventController : ControllerBase
     }
     
     /// <summary>
-    /// Récupère les événements avec filtrage et pagination
+    /// Récupère les événements filtrés par date, emplacement et catégorie
     /// </summary>
+    /// <param name="startDate"></param>
+    /// <param name="endDate"></param>
+    /// <param name="locationId"></param>
+    /// <param name="categoryId"></param>
+    /// <param name="page"></param>
+    /// <param name="pageSize"></param>
+    /// <returns></returns>
     [HttpGet("filter")]
     public async Task<ActionResult<IEnumerable<EventDto>>> GetFilteredEvents(
         [FromQuery] DateTime? startDate = null,
@@ -88,8 +105,8 @@ public class EventController : ControllerBase
         var (events, totalCount, totalPages) = await _eventService.GetFilteredAsync(
             startDate, endDate, locationId, categoryId, page, pageSize);
             
-        Response.Headers.Add("X-Total-Count", totalCount.ToString());
-        Response.Headers.Add("X-Total-Pages", totalPages.ToString());
+        Response.Headers.Append("X-Total-Count", totalCount.ToString());
+        Response.Headers.Append("X-Total-Pages", totalPages.ToString());
             
         return Ok(events);
     }

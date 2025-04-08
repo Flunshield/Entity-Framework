@@ -15,6 +15,10 @@ public class SpeakerController : ControllerBase
         _speakerService = speakerService;
     }
 
+    /// <summary>
+    /// Récupère tous les intervenants
+    /// </summary>
+    /// <returns></returns>
     [HttpGet]
     public async Task<ActionResult<IEnumerable<SpeakerDto>>> GetSpeakers()
     {
@@ -22,6 +26,11 @@ public class SpeakerController : ControllerBase
         return Ok(speakers);
     }
 
+    /// <summary>
+    /// Récupère un intervenant par son ID
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     [HttpGet("{id}")]
     public async Task<ActionResult<SpeakerDto>> GetSpeaker(int id)
     {
@@ -31,6 +40,11 @@ public class SpeakerController : ControllerBase
         return Ok(speakerDto);
     }
 
+    /// <summary>
+    /// Crée un nouvel intervenant
+    /// </summary>
+    /// <param name="speakerDto"></param>
+    /// <returns></returns>
     [HttpPost]
     public async Task<ActionResult<SpeakerDto>> CreateSpeaker(SpeakerDto speakerDto)
     {
@@ -38,6 +52,12 @@ public class SpeakerController : ControllerBase
         return CreatedAtAction(nameof(GetSpeaker), new { id = createdSpeaker.Id }, createdSpeaker);
     }
 
+    /// <summary>
+    /// Met à jour un intervenant existant
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="speakerDto"></param>
+    /// <returns></returns>
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdateSpeaker(int id, SpeakerDto speakerDto)
     {
@@ -49,6 +69,11 @@ public class SpeakerController : ControllerBase
         return NoContent();
     }
 
+    /// <summary>
+    /// Supprime un intervenant
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteSpeaker(int id)
     {

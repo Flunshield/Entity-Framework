@@ -15,6 +15,12 @@ public class ParticipantController(IParticipantService participantService) : Con
         return Ok(participants);
     }
 
+    
+    /// <summary>
+    /// Récupère un participant par son ID
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     [HttpGet("{id}")]
     public async Task<ActionResult<ParticipantDto>> GetParticipant(int id)
     {
@@ -24,6 +30,11 @@ public class ParticipantController(IParticipantService participantService) : Con
         return Ok(participantDto);
     }
 
+    /// <summary>
+    /// Crée un nouvel participant
+    /// </summary>
+    /// <param name="participantDto"></param>
+    /// <returns></returns>
     [HttpPost]
     public async Task<ActionResult<ParticipantDto>> CreateParticipant(ParticipantDto participantDto)
     {
@@ -31,6 +42,12 @@ public class ParticipantController(IParticipantService participantService) : Con
         return CreatedAtAction(nameof(GetParticipant), new { id = createdParticipant.Id }, createdParticipant);
     }
 
+    /// <summary>
+    /// Met à jour un participant existant
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="participantDto"></param>
+    /// <returns></returns>
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdateParticipant(int id, ParticipantDto participantDto)
     {
@@ -42,6 +59,11 @@ public class ParticipantController(IParticipantService participantService) : Con
         return NoContent();
     }
 
+    /// <summary>
+    /// Supprime un participant
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteParticipant(int id)
     {

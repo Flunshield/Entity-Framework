@@ -15,6 +15,10 @@ public class SessionController : ControllerBase
         _sessionService = sessionService;
     }
 
+    /// <summary>
+    /// Récupère toutes les sessions
+    /// </summary>
+    /// <returns></returns>
     [HttpGet]
     public async Task<ActionResult<IEnumerable<SessionDto>>> GetSessions()
     {
@@ -31,6 +35,11 @@ public class SessionController : ControllerBase
         return Ok(sessionDto);
     }
 
+    /// <summary>
+    /// Crée une nouvelle session
+    /// </summary>
+    /// <param name="sessionDto"></param>
+    /// <returns></returns>
     [HttpPost]
     public async Task<ActionResult<SessionDto>> CreateSession(SessionDto sessionDto)
     {
@@ -38,6 +47,12 @@ public class SessionController : ControllerBase
         return CreatedAtAction(nameof(GetSession), new { id = createdSession.Id }, createdSession);
     }
 
+    /// <summary>
+    /// Met à jour une session existante
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="sessionDto"></param>
+    /// <returns></returns>
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdateSession(int id, SessionDto sessionDto)
     {
@@ -49,6 +64,11 @@ public class SessionController : ControllerBase
         return NoContent();
     }
 
+    /// <summary>
+    /// Supprime une session
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteSession(int id)
     {

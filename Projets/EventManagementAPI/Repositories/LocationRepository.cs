@@ -1,6 +1,7 @@
 using EventManagementAPI.Data;
 using EventManagementAPI.Interfaces;
 using EventManagementAPI.Models;
+using EventManagementAPI.Repository;
 
 namespace EventManagementAPI.Repositories
 {
@@ -9,12 +10,5 @@ namespace EventManagementAPI.Repositories
         public LocationRepository(AppDbContext context) : base(context)
         {
         }
-
-        // Implement location-specific methods here if they were defined in ILocationRepository
-        // Example:
-        // public async Task<IEnumerable<Location>> GetLocationsByCityAsync(string city)
-        // {
-        //     return await _dbSet.Where(l => l.City == city).ToListAsync();
-        // }
     }
 }

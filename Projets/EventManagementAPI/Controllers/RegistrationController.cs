@@ -18,6 +18,8 @@ public class RegistrationController : ControllerBase
     /// <summary>
     /// Inscrit un participant à un événement
     /// </summary>
+    /// <param name="registrationDto"></param>
+    /// <returns></returns>
     [HttpPost]
     public async Task<IActionResult> RegisterParticipant(EventParticipantDto registrationDto)
     {
@@ -34,6 +36,8 @@ public class RegistrationController : ControllerBase
     /// <summary>
     /// Récupère tous les événements auxquels un participant est inscrit
     /// </summary>
+    /// <param name="participantId"></param>
+    /// <returns></returns>
     [HttpGet("participants/{participantId}/events")]
     public async Task<ActionResult<IEnumerable<EventDto>>> GetParticipantEvents(int participantId)
     {

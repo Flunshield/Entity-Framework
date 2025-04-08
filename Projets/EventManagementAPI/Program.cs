@@ -2,6 +2,7 @@ using System.Reflection;
 using EventManagementAPI.Data;
 using EventManagementAPI.Interfaces;
 using EventManagementAPI.Repositories;
+using EventManagementAPI.Repository;
 using EventManagementAPI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -29,7 +30,6 @@ builder.Services.AddSwaggerGen(c => {
     c.IncludeXmlComments(xmlPath);
 });
 
-// Ajoutez CORS ici
 builder.Services.AddCors(options => {
     options.AddDefaultPolicy(policy => {
         policy.AllowAnyOrigin()
@@ -39,9 +39,8 @@ builder.Services.AddCors(options => {
 });
 
 // Repositories
-builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>)); // Optional: Register generic repository
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<ILocationRepository, LocationRepository>();
-// Add other specific repositories here (e.g., IEventRepository, IParticipantRepository...)
 
 // Services métier
 builder.Services.AddScoped<ILocationService, LocationService>();

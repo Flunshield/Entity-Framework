@@ -15,6 +15,11 @@ public class LocationController(ILocationService locationService) : ControllerBa
         return Ok(locations);
     }
 
+    /// <summary>
+    /// Récupère un emplacement par son ID
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     [HttpGet("{id}")]
     public async Task<ActionResult<LocationDto>> GetLocation(int id)
     {
@@ -24,6 +29,12 @@ public class LocationController(ILocationService locationService) : ControllerBa
         return Ok(locationDto);
     }
 
+    
+    /// <summary>
+    /// Crée un nouvel emplacement
+    /// </summary>
+    /// <param name="locationDto"></param>
+    /// <returns></returns>
     [HttpPost]
     public async Task<ActionResult<LocationDto>> CreateLocation(LocationDto locationDto)
     {
@@ -31,6 +42,13 @@ public class LocationController(ILocationService locationService) : ControllerBa
         return CreatedAtAction(nameof(GetLocation), new { id = createdLocation.Id }, createdLocation);
     }
 
+    
+    /// <summary>
+    /// Met à jour un emplacement existant
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="locationDto"></param>
+    /// <returns></returns>
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdateLocation(int id, LocationDto locationDto)
     {
@@ -42,6 +60,11 @@ public class LocationController(ILocationService locationService) : ControllerBa
         return NoContent();
     }
 
+    /// <summary>
+    /// Supprime un emplacement
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteLocation(int id)
     {
