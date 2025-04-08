@@ -1,0 +1,1105 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EventManagementAPI</name>
+    </assembly>
+    <members>
+        <member name="M:EventManagementAPI.Controllers.EventController.GetEvents">
+            <summary>
+            Récupère tous les événements
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EventManagementAPI.Controllers.EventController.GetEvent(System.Int32)">
+            <summary>
+            Récupère un événement par son ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EventManagementAPI.Controllers.EventController.CreateEvent(EventManagementAPI.Dtos.EventDto)">
+            <summary>
+            Crée un nouvel événement
+            </summary>
+            <param name="eventDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EventManagementAPI.Controllers.EventController.UpdateEvent(System.Int32,EventManagementAPI.Dtos.EventDto)">
+            <summary>
+            Met à jour un événement existant
+            </summary>
+            <param name="id"></param>
+            <param name="eventDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EventManagementAPI.Controllers.EventController.DeleteEvent(System.Int32)">
+            <summary>
+            Supprime un événement
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EventManagementAPI.Controllers.EventController.GetFilteredEvents(System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Int32,System.Int32)">
+            <summary>
+            Récupère les événements filtrés par date, emplacement et catégorie
+            </summary>
+            <param name="startDate"></param>
+            <param name="endDate"></param>
+            <param name="locationId"></param>
+            <param name="categoryId"></param>
+            <param name="page"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EventManagementAPI.Controllers.LocationController.GetLocations">
+            <summary>
+            Récupère tous les emplacements
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EventManagementAPI.Controllers.LocationController.GetLocation(System.Int32)">
+            <summary>
+            Récupère un emplacement par son ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EventManagementAPI.Controllers.LocationController.CreateLocation(EventManagementAPI.Dtos.LocationDto)">
+            <summary>
+            Crée un nouvel emplacement
+            </summary>
+            <param name="locationDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EventManagementAPI.Controllers.LocationController.UpdateLocation(System.Int32,EventManagementAPI.Dtos.LocationDto)">
+            <summary>
+            Met à jour un emplacement existant
+            </summary>
+            <param name="id"></param>
+            <param name="locationDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EventManagementAPI.Controllers.LocationController.DeleteLocation(System.Int32)">
+            <summary>
+            Supprime un emplacement
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EventManagementAPI.Controllers.ParticipantController.GetParticipants">
+            <summary>
+            Récupère tous les participants
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EventManagementAPI.Controllers.ParticipantController.GetParticipant(System.Int32)">
+            <summary>
+            Récupère un participant par son ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EventManagementAPI.Controllers.ParticipantController.CreateParticipant(EventManagementAPI.Dtos.ParticipantDto)">
+            <summary>
+            Crée un nouvel participant
+            </summary>
+            <param name="participantDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EventManagementAPI.Controllers.ParticipantController.UpdateParticipant(System.Int32,EventManagementAPI.Dtos.ParticipantDto)">
+            <summary>
+            Met à jour un participant existant
+            </summary>
+            <param name="id"></param>
+            <param name="participantDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EventManagementAPI.Controllers.ParticipantController.DeleteParticipant(System.Int32)">
+            <summary>
+            Supprime un participant
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EventManagementAPI.Controllers.RegistrationController.RegisterParticipant(EventManagementAPI.Dtos.EventParticipantDto)">
+            <summary>
+            Inscrit un participant à un événement
+            </summary>
+            <param name="registrationDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EventManagementAPI.Controllers.RegistrationController.GetParticipantEvents(System.Int32)">
+            <summary>
+            Récupère tous les événements auxquels un participant est inscrit
+            </summary>
+            <param name="participantId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EventManagementAPI.Controllers.SessionController.GetSessions">
+            <summary>
+            Récupère toutes les sessions
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EventManagementAPI.Controllers.SessionController.GetSession(System.Int32)">
+            <summary>
+            Récupère une session par son identifiant
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EventManagementAPI.Controllers.SessionController.CreateSession(EventManagementAPI.Dtos.SessionDto)">
+            <summary>
+            Crée une nouvelle session
+            </summary>
+            <param name="sessionDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EventManagementAPI.Controllers.SessionController.UpdateSession(System.Int32,EventManagementAPI.Dtos.SessionDto)">
+            <summary>
+            Met à jour une session existante
+            </summary>
+            <param name="id"></param>
+            <param name="sessionDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EventManagementAPI.Controllers.SessionController.DeleteSession(System.Int32)">
+            <summary>
+            Supprime une session
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EventManagementAPI.Controllers.SpeakerController.GetSpeakers">
+            <summary>
+            Récupère tous les intervenants
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EventManagementAPI.Controllers.SpeakerController.GetSpeaker(System.Int32)">
+            <summary>
+            Récupère un intervenant par son ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EventManagementAPI.Controllers.SpeakerController.CreateSpeaker(EventManagementAPI.Dtos.SpeakerDto)">
+            <summary>
+            Crée un nouvel intervenant
+            </summary>
+            <param name="speakerDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EventManagementAPI.Controllers.SpeakerController.UpdateSpeaker(System.Int32,EventManagementAPI.Dtos.SpeakerDto)">
+            <summary>
+            Met à jour un intervenant existant
+            </summary>
+            <param name="id"></param>
+            <param name="speakerDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EventManagementAPI.Controllers.SpeakerController.DeleteSpeaker(System.Int32)">
+            <summary>
+            Supprime un intervenant
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EventManagementAPI.Migrations.InitialCreate">
+            <inheritdoc />
+        </member>
+        <member name="M:EventManagementAPI.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EventManagementAPI.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EventManagementAPI.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:EventManagementAPI.Migrations.InitialFieldInDb">
+            <inheritdoc />
+        </member>
+        <member name="M:EventManagementAPI.Migrations.InitialFieldInDb.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EventManagementAPI.Migrations.InitialFieldInDb.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EventManagementAPI.Migrations.InitialFieldInDb.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:EventManagementAPI.Migrations.InitialContraint">
+            <inheritdoc />
+        </member>
+        <member name="M:EventManagementAPI.Migrations.InitialContraint.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EventManagementAPI.Migrations.InitialContraint.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EventManagementAPI.Migrations.InitialContraint.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:EventManagementAPI.Migrations.InitialController">
+            <inheritdoc />
+        </member>
+        <member name="M:EventManagementAPI.Migrations.InitialController.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EventManagementAPI.Migrations.InitialController.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EventManagementAPI.Migrations.InitialController.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:EventManagementAPI.Migrations.AddRoleParticipantSpeaker">
+            <inheritdoc />
+        </member>
+        <member name="M:EventManagementAPI.Migrations.AddRoleParticipantSpeaker.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EventManagementAPI.Migrations.AddRoleParticipantSpeaker.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EventManagementAPI.Migrations.AddRoleParticipantSpeaker.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:EventManagementAPI.Migrations.pleinmodels">
+            <inheritdoc />
+        </member>
+        <member name="M:EventManagementAPI.Migrations.pleinmodels.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EventManagementAPI.Migrations.pleinmodels.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EventManagementAPI.Migrations.pleinmodels.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:EventManagementAPI.Migrations.AddCategoryAndEventParticipant">
+            <inheritdoc />
+        </member>
+        <member name="M:EventManagementAPI.Migrations.AddCategoryAndEventParticipant.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EventManagementAPI.Migrations.AddCategoryAndEventParticipant.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EventManagementAPI.Migrations.AddCategoryAndEventParticipant.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:EventManagementAPI.Migrations.PleinModels">
+            <inheritdoc />
+        </member>
+        <member name="M:EventManagementAPI.Migrations.PleinModels.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EventManagementAPI.Migrations.PleinModels.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EventManagementAPI.Migrations.PleinModels.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:EventManagementAPI.Models.Category">
+            <summary>
+            Représente une catégorie d'événements.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Category.Id">
+            <summary>
+            Identifiant unique de la catégorie.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Category.Name">
+            <summary>
+            Nom de la catégorie.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Category.Description">
+            <summary>
+            Description de la catégorie.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Category.Events">
+            <summary>
+            Liste des événements associés à cette catégorie.
+            </summary>
+        </member>
+        <member name="T:EventManagementAPI.Models.Event">
+            <summary>
+            Représente un événement dans le système de gestion d'événements.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Event.Id">
+            <summary>
+            Identifiant unique de l'événement.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Event.Name">
+            <summary>
+            Nom de l'événement.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Event.Description">
+            <summary>
+            Description détaillée de l'événement.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Event.StartDate">
+            <summary>
+            Date et heure de début de l'événement.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Event.EndDate">
+            <summary>
+            Date et heure de fin de l'événement.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Event.LocationId">
+            <summary>
+            Identifiant de la localisation où se déroule l'événement.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Event.CategoryId">
+            <summary>
+            Identifiant de la catégorie de l'événement.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Event.Location">
+            <summary>
+            Localisation de l'événement.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Event.Category">
+            <summary>
+            Catégorie de l'événement.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Event.Sessions">
+            <summary>
+            Liste des sessions associées à cet événement.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Event.Participants">
+            <summary>
+            Liste des participants inscrits à cet événement.
+            </summary>
+        </member>
+        <member name="T:EventManagementAPI.Models.EventParticipant">
+            <summary>
+            Représente l'inscription d'un participant à un événement.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.EventParticipant.EventId">
+            <summary>
+            Identifiant de l'événement auquel le participant est inscrit.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.EventParticipant.ParticipantId">
+            <summary>
+            Identifiant du participant inscrit à l'événement.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.EventParticipant.RegistrationDate">
+            <summary>
+            Date et heure de l'inscription du participant à l'événement.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.EventParticipant.AttendanceStatus">
+            <summary>
+            Statut de présence du participant pour l'événement.
+            Par défaut, il est "Registered" (inscrit).
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.EventParticipant.Event">
+            <summary>
+            Événement auquel le participant est inscrit.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.EventParticipant.Participant">
+            <summary>
+            Participant inscrit à l'événement.
+            </summary>
+        </member>
+        <member name="T:EventManagementAPI.Models.Location">
+            <summary>
+            Représente une localisation d'événements.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Location.Id">
+            <summary>
+            Identifiant unique de la localisation.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Location.Name">
+            <summary>
+            Nom de la localisation.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Location.Address">
+            <summary>
+            Adresse de la localisation.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Location.City">
+            <summary>
+            Ville où se situe la localisation.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Location.Events">
+            <summary>
+            Liste des événements qui se déroulent dans cette localisation.
+            </summary>
+        </member>
+        <member name="T:EventManagementAPI.Models.Participant">
+            <summary>
+            Représente un participant à un ou plusieurs événements.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Participant.Id">
+            <summary>
+            Identifiant unique du participant.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Participant.FirstName">
+            <summary>
+            Prénom du participant.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Participant.LastName">
+            <summary>
+            Nom de famille du participant.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Participant.Email">
+            <summary>
+            Adresse e-mail du participant.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Participant.Phone">
+            <summary>
+            Numéro de téléphone du participant.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Participant.Company">
+            <summary>
+            Nom de l'entreprise du participant.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Participant.JobTitle">
+            <summary>
+            Titre du poste du participant.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Participant.Role">
+            <summary>
+            Rôle du participant dans l'événement (par défaut "User").
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Participant.Events">
+            <summary>
+            Liste des événements auxquels ce participant est inscrit.
+            </summary>
+        </member>
+        <member name="T:EventManagementAPI.Models.Rating">
+            <summary>
+            Représente une évaluation donnée par un participant à une session.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Rating.Id">
+            <summary>
+            Identifiant unique de l'évaluation.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Rating.SessionId">
+            <summary>
+            Identifiant de la session évaluée.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Rating.ParticipantId">
+            <summary>
+            Identifiant du participant qui a donné l'évaluation.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Rating.Score">
+            <summary>
+            Score de l'évaluation (généralement sur une échelle de 1 à 5).
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Rating.Comment">
+            <summary>
+            Commentaire ajouté par le participant concernant la session.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Rating.Session">
+            <summary>
+            La session qui a été évaluée.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Rating.Participant">
+            <summary>
+            Le participant qui a donné l'évaluation.
+            </summary>
+        </member>
+        <member name="T:EventManagementAPI.Models.Room">
+            <summary>
+            Représente une salle dans un lieu où les sessions d'événements peuvent se dérouler.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Room.Id">
+            <summary>
+            Identifiant unique de la salle.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Room.Name">
+            <summary>
+            Nom de la salle.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Room.Capacity">
+            <summary>
+            Capacité maximale de la salle (le nombre de participants qu'elle peut accueillir).
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Room.LocationId">
+            <summary>
+            Identifiant du lieu auquel appartient la salle.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Room.Location">
+            <summary>
+            Lieu où se trouve la salle.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Room.Sessions">
+            <summary>
+            Liste des sessions qui se dérouleront dans cette salle.
+            </summary>
+        </member>
+        <member name="T:EventManagementAPI.Models.Session">
+            <summary>
+            Représente une session d'un événement. Chaque session a un titre, une description, une heure de début et de fin, 
+            et peut être associée à une salle et à des intervenants.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Session.Id">
+            <summary>
+            Identifiant unique de la session.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Session.Title">
+            <summary>
+            Titre de la session.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Session.Description">
+            <summary>
+            Description détaillée de la session.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Session.StartTime">
+            <summary>
+            Heure de début de la session.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Session.EndTime">
+            <summary>
+            Heure de fin de la session.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Session.EventId">
+            <summary>
+            Identifiant de l'événement auquel appartient cette session.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Session.RoomId">
+            <summary>
+            Identifiant de la salle où se déroule cette session (peut être null si aucune salle n'est assignée).
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Session.Event">
+            <summary>
+            L'événement auquel cette session est associée.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Session.Room">
+            <summary>
+            La salle où se déroule la session (si elle est assignée).
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Session.Speakers">
+            <summary>
+            Liste des intervenants (orateurs) pour cette session.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Session.Ratings">
+            <summary>
+            Liste des évaluations (notes) attribuées à cette session par les participants.
+            </summary>
+        </member>
+        <member name="T:EventManagementAPI.Models.Speaker">
+            <summary>
+            Représente un intervenant (orateur) d'une ou plusieurs sessions. Un intervenant a un nom complet, une biographie, 
+            un email, une entreprise, et un rôle associé à ses sessions.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Speaker.Id">
+            <summary>
+            Identifiant unique de l'intervenant.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Speaker.FullName">
+            <summary>
+            Nom complet de l'intervenant, composé du prénom et du nom.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Speaker.FirstName">
+            <summary>
+            Prénom de l'intervenant.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Speaker.LastName">
+            <summary>
+            Nom de famille de l'intervenant.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Speaker.Bio">
+            <summary>
+            Biographie de l'intervenant, décrivant ses qualifications et son expérience.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Speaker.Email">
+            <summary>
+            Adresse e-mail de l'intervenant pour le contacter.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Speaker.Company">
+            <summary>
+            Nom de l'entreprise ou organisation de l'intervenant.
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Speaker.Role">
+            <summary>
+            Rôle de l'intervenant dans l'événement (par défaut, "Speaker").
+            </summary>
+        </member>
+        <member name="P:EventManagementAPI.Models.Speaker.Sessions">
+            <summary>
+            Liste des sessions auxquelles cet intervenant est assigné.
+            </summary>
+        </member>
+        <member name="M:EventManagementAPI.Services.EventService.GetAllAsync">
+            <summary>
+            Récupère tous les événements disponibles.
+            </summary>
+            <returns>
+            Une tâche représentant l'opération asynchrone. 
+            Le résultat de la tâche contient une collection de <see cref="T:EventManagementAPI.Dtos.EventDto"/> représentant tous les événements.
+            </returns>
+            <remarks>
+            Cette méthode interroge la base de données pour obtenir tous les événements,
+            puis effectue un mappage manuel des entités vers des objets de transfert de données (DTO).
+            </remarks>
+        </member>
+        <member name="M:EventManagementAPI.Services.EventService.GetByIdAsync(System.Int32)">
+            <summary>
+            Récupère un événement par son identifiant unique.
+            </summary>
+            <param name="id">L'identifiant de l'événement à récupérer.</param>
+            <returns>
+            Une tâche représentant l'opération asynchrone.
+            Le résultat de la tâche contient un <see cref="T:EventManagementAPI.Dtos.EventDto"/> correspondant à l'identifiant fourni,
+            ou <c>null</c> si aucun événement n'est trouvé.
+            </returns>
+            <remarks>
+            Cette méthode utilise la recherche par clé primaire pour retrouver l'événement.
+            Si l'événement est trouvé, il est mappé manuellement vers un DTO.
+            </remarks>
+        </member>
+        <member name="M:EventManagementAPI.Services.EventService.CreateAsync(EventManagementAPI.Dtos.EventDto)">
+            <summary>
+            Crée un nouvel événement dans la base de données.
+            </summary>
+            <param name="eventDto">L'objet <see cref="T:EventManagementAPI.Dtos.EventDto"/> contenant les informations de l'événement à créer.</param>
+            <returns>
+            Une tâche représentant l'opération asynchrone.
+            Le résultat de la tâche contient le <see cref="T:EventManagementAPI.Dtos.EventDto"/> de l'événement créé,
+            incluant l'identifiant généré par la base de données.
+            </returns>
+            <remarks>
+            Les données du DTO sont mappées manuellement vers l'entité de la base.
+            Après l'enregistrement, l'identifiant généré est affecté au DTO retourné.
+            </remarks>
+        </member>
+        <member name="M:EventManagementAPI.Services.EventService.UpdateAsync(System.Int32,EventManagementAPI.Dtos.EventDto)">
+            <summary>
+            Met à jour un événement existant dans la base de données.
+            </summary>
+            <param name="id">L'identifiant de l'événement à mettre à jour.</param>
+            <param name="eventDto">L'objet <see cref="T:EventManagementAPI.Dtos.EventDto"/> contenant les nouvelles informations de l'événement.</param>
+            <returns>
+            Une tâche représentant l'opération asynchrone.
+            Le résultat de la tâche est un booléen indiquant si la mise à jour a réussi.
+            Retourne <c>false</c> si aucun événement correspondant n'a été trouvé.
+            </returns>
+            <remarks>
+            Si l'événement est trouvé, ses propriétés sont mises à jour avec les valeurs du DTO,
+            puis les modifications sont sauvegardées dans la base de données.
+            </remarks>
+        </member>
+        <member name="M:EventManagementAPI.Services.EventService.DeleteAsync(System.Int32)">
+            <summary>
+            Supprime un événement existant de la base de données.
+            </summary>
+            <param name="id">L'identifiant de l'événement à supprimer.</param>
+            <returns>
+            Une tâche représentant l'opération asynchrone.
+            Le résultat de la tâche est un booléen indiquant si la suppression a réussi.
+            Retourne <c>false</c> si aucun événement correspondant n'a été trouvé.
+            </returns>
+            <remarks>
+            Si l'événement est trouvé, il est supprimé de la base de données,
+            et les changements sont sauvegardés.
+            </remarks>
+        </member>
+        <member name="M:EventManagementAPI.Services.EventService.GetFilteredAsync(System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Int32,System.Int32)">
+            <summary>
+            Récupère une liste paginée d'événements filtrés selon les critères spécifiés.
+            </summary>
+            <param name="startDate">Date de début minimale de l'événement (optionnelle).</param>
+            <param name="endDate">Date de fin maximale de l'événement (optionnelle).</param>
+            <param name="locationId">Identifiant de l'emplacement pour filtrer les événements (optionnel).</param>
+            <param name="categoryId">Identifiant de la catégorie pour filtrer les événements (optionnel).</param>
+            <param name="page">Numéro de la page pour la pagination (valeur par défaut : 1).</param>
+            <param name="pageSize">Nombre d'éléments par page pour la pagination (valeur par défaut : 10).</param>
+            <returns>
+            Une tâche asynchrone qui retourne un tuple contenant :
+            <list type="bullet">
+            <item><description>Items : la liste des événements correspondant aux filtres et à la pagination.</description></item>
+            <item><description>TotalCount : le nombre total d'événements correspondant aux filtres.</description></item>
+            <item><description>TotalPages : le nombre total de pages selon la taille de page spécifiée.</description></item>
+            </list>
+            </returns>
+            <remarks>
+            Les filtres sont appliqués uniquement si les paramètres correspondants sont renseignés.
+            La pagination est calculée en fonction du nombre total d'éléments et de la taille de page spécifiée.
+            </remarks>
+        </member>
+        <member name="M:EventManagementAPI.Services.EventService.RegisterParticipantAsync(System.Int32,System.Int32)">
+            <summary>
+            Enregistre un participant à un événement spécifique.
+            </summary>
+            <param name="eventId">L'identifiant de l'événement auquel le participant souhaite s'inscrire.</param>
+            <param name="participantId">L'identifiant du participant à inscrire.</param>
+            <returns>
+            Une tâche asynchrone qui retourne un booléen :
+            <list type="bullet">
+            <item><description><c>true</c> si l'inscription a été réussie.</description></item>
+            <item><description><c>false</c> si le participant est déjà inscrit à cet événement.</description></item>
+            </list>
+            </returns>
+            <remarks>
+            La méthode vérifie d'abord si le participant est déjà inscrit à l'événement.
+            Si ce n'est pas le cas, elle crée une nouvelle inscription avec la date d'inscription actuelle et un statut de présence "Registered".
+            </remarks>
+        </member>
+        <member name="M:EventManagementAPI.Services.EventService.GetParticipantEventsAsync(System.Int32)">
+            <summary>
+            Récupère la liste des événements auxquels un participant est inscrit.
+            </summary>
+            <param name="participantId">L'identifiant du participant pour lequel récupérer les événements.</param>
+            <returns>
+            Une tâche asynchrone qui retourne une collection d'objets <see cref="T:EventManagementAPI.Dtos.EventDto"/> représentant les événements
+            auxquels le participant spécifié est inscrit.
+            </returns>
+            <remarks>
+            La méthode filtre les événements en fonction de l'identifiant du participant et retourne une liste d'événements
+            avec les informations pertinentes, telles que le nom, la description, les dates de début et de fin, ainsi que
+            l'état de la présence du participant à chaque événement.
+            </remarks>
+        </member>
+        <member name="M:EventManagementAPI.Services.LocationService.GetAllLocationsAsync">
+            <summary>
+            Récupère toutes les locations.
+            </summary>
+            <returns>
+            Une tâche représentant l'opération asynchrone. Le résultat de la tâche contient une collection
+            d'objets <see cref="T:EventManagementAPI.Dtos.LocationDto"/> représentant toutes les locations.
+            </returns>
+            <remarks>
+            Cette méthode interroge le dépôt de locations pour récupérer toutes les locations. Les données sont ensuite
+            projetées sous forme de collection d'objets <see cref="T:EventManagementAPI.Dtos.LocationDto"/>. Le mappage est effectué manuellement,
+            mais il est recommandé d'utiliser un outil comme AutoMapper pour des projets plus importants.
+            </remarks>
+        </member>
+        <member name="M:EventManagementAPI.Services.LocationService.GetLocationByIdAsync(System.Int32)">
+            <summary>
+            Récupère une location par son identifiant unique.
+            </summary>
+            <param name="id">L'identifiant de la location à récupérer.</param>
+            <returns>
+            Une tâche représentant l'opération asynchrone. Le résultat de la tâche contient un objet <see cref="T:EventManagementAPI.Dtos.LocationDto"/> 
+            correspondant à la location spécifiée, ou <c>null</c> si aucune location n'est trouvée avec cet identifiant.
+            </returns>
+            <remarks>
+            Cette méthode interroge le dépôt de locations pour récupérer une location spécifique par son identifiant.
+            Si aucune location n'est trouvée, la méthode retourne <c>null</c>. Le mappage des données est effectué manuellement.
+            </remarks>
+        </member>
+        <member name="M:EventManagementAPI.Services.LocationService.CreateLocationAsync(EventManagementAPI.Dtos.LocationDto)">
+            <summary>
+            Crée une nouvelle location à partir des données fournies.
+            </summary>
+            <param name="locationDto">Les informations de la location à créer.</param>
+            <returns>
+            Une tâche représentant l'opération asynchrone. Le résultat de la tâche contient un objet <see cref="T:EventManagementAPI.Dtos.LocationDto"/>
+            représentant la location créée, incluant son identifiant généré.
+            </returns>
+            <exception cref="T:System.ArgumentException">
+            Levée si le nom de la location est vide ou constitué uniquement d'espaces blancs.
+            </exception>
+            <remarks>
+            La méthode effectue une validation basique du nom de la location.
+            Le mappage des données est effectué manuellement.
+            Après la création, le DTO est mis à jour avec l'identifiant généré par la base de données avant d'être retourné.
+            Il est recommandé de déplacer la validation dans un validateur dédié pour une meilleure maintenabilité.
+            </remarks>
+        </member>
+        <member name="M:EventManagementAPI.Services.LocationService.UpdateLocationAsync(System.Int32,EventManagementAPI.Dtos.LocationDto)">
+            <summary>
+            Met à jour les informations d'une location existante.
+            </summary>
+            <param name="id">L'identifiant de la location à mettre à jour.</param>
+            <param name="locationDto">Les nouvelles données de la location.</param>
+            <returns>
+            Une tâche représentant l'opération asynchrone. Le résultat de la tâche contient un booléen indiquant si la mise à jour a réussi.
+            Retourne <c>false</c> si la location n'a pas été trouvée ; sinon, <c>true</c>.
+            </returns>
+            <exception cref="T:System.ArgumentException">
+            Levée si le nom de la location est vide ou constitué uniquement d'espaces blancs.
+            </exception>
+            <remarks>
+            La méthode vérifie d'abord l'existence de la location.  
+            Une validation basique du nom de la location est effectuée.
+            Le mappage des données est manuel.
+            Comme le contexte EF Core suit déjà les entités, un appel à <c>SaveChangesAsync</c> suffit pour enregistrer les modifications.
+            Il est recommandé d'ajouter un validateur dédié pour centraliser la logique de validation.
+            </remarks>
+        </member>
+        <member name="M:EventManagementAPI.Services.LocationService.DeleteLocationAsync(System.Int32)">
+            <summary>
+            Supprime une location existante à partir de son identifiant.
+            </summary>
+            <param name="id">L'identifiant de la location à supprimer.</param>
+            <returns>
+            Une tâche représentant l'opération asynchrone. Le résultat de la tâche contient un booléen indiquant si la suppression a réussi.
+            Retourne <c>false</c> si la location n'a pas été trouvée ; sinon, <c>true</c>.
+            </returns>
+            <remarks>
+            La méthode vérifie d'abord si la location existe.
+            Si elle est trouvée, elle est supprimée du contexte, puis les modifications sont enregistrées.
+            </remarks>
+        </member>
+        <member name="M:EventManagementAPI.Services.ParticipantService.GetAllAsync">
+            <summary>
+            Récupère la liste de tous les participants.
+            </summary>
+            <returns>
+            Une tâche asynchrone qui retourne une collection d'objets <see cref="T:EventManagementAPI.Dtos.ParticipantDto"/> représentant tous les participants.
+            </returns>
+            <remarks>
+            La méthode retourne une liste de participants avec les informations essentielles telles que le prénom, le nom, l'email,
+            l'entreprise, le poste, et le rôle de chaque participant.
+            </remarks>
+        </member>
+        <member name="M:EventManagementAPI.Services.ParticipantService.GetByIdAsync(System.Int32)">
+            <summary>
+            Récupère un participant par son identifiant.
+            </summary>
+            <param name="id">L'identifiant du participant à récupérer.</param>
+            <returns>
+            Une tâche asynchrone qui retourne un objet <see cref="T:EventManagementAPI.Dtos.ParticipantDto"/> représentant le participant avec l'identifiant
+            spécifié, ou <c>null</c> si le participant n'a pas été trouvé.
+            </returns>
+            <remarks>
+            La méthode cherche le participant dans la base de données en fonction de l'identifiant donné.
+            Si un participant est trouvé, un <see cref="T:EventManagementAPI.Dtos.ParticipantDto"/> est retourné avec les informations essentielles.
+            Sinon, <c>null</c> est retourné pour indiquer que le participant n'existe pas.
+            </remarks>
+        </member>
+        <member name="M:EventManagementAPI.Services.ParticipantService.CreateAsync(EventManagementAPI.Dtos.ParticipantDto)">
+            <summary>
+            Crée un nouveau participant.
+            </summary>
+            <param name="participantDto">L'objet <see cref="T:EventManagementAPI.Dtos.ParticipantDto"/> contenant les informations du participant à créer.</param>
+            <returns>
+            Une tâche asynchrone qui retourne un objet <see cref="T:EventManagementAPI.Dtos.ParticipantDto"/> avec l'identifiant généré du participant créé.
+            </returns>
+            <remarks>
+            La méthode crée un nouvel enregistrement de participant dans la base de données à partir des informations contenues dans
+            le DTO. Après la création, l'identifiant généré du participant est ajouté au DTO, qui est ensuite retourné.
+            </remarks>
+        </member>
+        <member name="M:EventManagementAPI.Services.ParticipantService.UpdateAsync(System.Int32,EventManagementAPI.Dtos.ParticipantDto)">
+            <summary>
+            Met à jour un participant existant.
+            </summary>
+            <param name="id">L'identifiant du participant à mettre à jour.</param>
+            <param name="participantDto">L'objet <see cref="T:EventManagementAPI.Dtos.ParticipantDto"/> contenant les nouvelles informations du participant.</param>
+            <returns>
+            Une tâche asynchrone qui retourne <c>true</c> si la mise à jour a réussi, ou <c>false</c> si le participant n'a pas été trouvé.
+            </returns>
+            <remarks>
+            La méthode met à jour les informations du participant spécifié par son identifiant.
+            Si un participant avec l'identifiant donné est trouvé, ses informations sont mises à jour avec celles contenues dans le DTO.
+            Si le participant n'existe pas, <c>false</c> est retourné pour indiquer l'échec de la mise à jour.
+            </remarks>
+        </member>
+        <member name="M:EventManagementAPI.Services.ParticipantService.DeleteAsync(System.Int32)">
+            <summary>
+            Supprime un participant existant.
+            </summary>
+            <param name="id">L'identifiant du participant à supprimer.</param>
+            <returns>
+            Une tâche asynchrone qui retourne <c>true</c> si la suppression a réussi, ou <c>false</c> si le participant n'a pas été trouvé.
+            </returns>
+            <remarks>
+            La méthode supprime le participant spécifié par son identifiant. Si un participant avec l'identifiant donné est trouvé,
+            il est supprimé de la base de données. Si le participant n'existe pas, <c>false</c> est retourné pour indiquer l'échec de la suppression.
+            </remarks>
+        </member>
+        <member name="M:EventManagementAPI.Services.SessionService.GetAllAsync">
+            <summary>
+            Récupère toutes les sessions.
+            </summary>
+            <returns>
+            Une tâche asynchrone qui retourne une liste de <see cref="T:EventManagementAPI.Dtos.SessionDto"/> contenant les informations de toutes les sessions.
+            </returns>
+            <remarks>
+            La méthode récupère toutes les sessions présentes dans la base de données et les transforme en une liste d'objets DTO
+            <see cref="T:EventManagementAPI.Dtos.SessionDto"/> pour simplifier la manipulation des données dans l'application.
+            </remarks>
+        </member>
+        <member name="M:EventManagementAPI.Services.SessionService.GetByIdAsync(System.Int32)">
+            <summary>
+            Récupère une session par son identifiant.
+            </summary>
+            <param name="id">L'identifiant de la session à récupérer.</param>
+            <returns>
+            Une tâche asynchrone qui retourne un objet <see cref="T:EventManagementAPI.Dtos.SessionDto"/> contenant les informations de la session, 
+            ou <c>null</c> si aucune session n'a été trouvée avec l'identifiant donné.
+            </returns>
+            <remarks>
+            Cette méthode permet de récupérer une session dans la base de données en fonction de son identifiant. 
+            Si la session est trouvée, ses informations sont retournées sous forme d'un objet <see cref="T:EventManagementAPI.Dtos.SessionDto"/>. 
+            Sinon, <c>null</c> est retourné.
+            </remarks>
+        </member>
+        <member name="M:EventManagementAPI.Services.SessionService.CreateAsync(EventManagementAPI.Dtos.SessionDto)">
+            <summary>
+            Crée une nouvelle session.
+            </summary>
+            <param name="sessionDto">L'objet DTO contenant les informations de la session à créer.</param>
+            <returns>
+            Une tâche asynchrone qui retourne l'objet <see cref="T:EventManagementAPI.Dtos.SessionDto"/> avec l'ID de la session généré après création.
+            </returns>
+            <remarks>
+            Cette méthode permet de créer une nouvelle session dans la base de données en utilisant les informations fournies dans le DTO. 
+            Après la création de la session, l'ID généré est attribué au DTO et renvoyé.
+            </remarks>
+        </member>
+        <member name="M:EventManagementAPI.Services.SessionService.UpdateAsync(System.Int32,EventManagementAPI.Dtos.SessionDto)">
+            <summary>
+            Met à jour une session existante.
+            </summary>
+            <param name="id">L'identifiant de la session à mettre à jour.</param>
+            <param name="sessionDto">L'objet DTO contenant les nouvelles informations de la session.</param>
+            <returns>
+            Une tâche asynchrone qui retourne <c>true</c> si la mise à jour a réussi, <c>false</c> si la session n'a pas été trouvée.
+            </returns>
+            <remarks>
+            Cette méthode permet de mettre à jour les informations d'une session existante dans la base de données.
+            Si la session avec l'identifiant spécifié n'existe pas, la méthode retourne <c>false</c>.
+            </remarks>
+        </member>
+        <member name="M:EventManagementAPI.Services.SessionService.DeleteAsync(System.Int32)">
+            <summary>
+            Supprime une session existante.
+            </summary>
+            <param name="id">L'identifiant de la session à supprimer.</param>
+            <returns>
+            Une tâche asynchrone qui retourne <c>true</c> si la suppression a réussi, <c>false</c> si la session n'a pas été trouvée.
+            </returns>
+            <remarks>
+            Cette méthode permet de supprimer une session existante de la base de données.
+            Si la session avec l'identifiant spécifié n'existe pas, la méthode retourne <c>false</c>.
+            </remarks>
+        </member>
+        <member name="M:EventManagementAPI.Services.SpeakerService.GetAllAsync">
+            <summary>
+            Récupère la liste de tous les intervenants (speakers).
+            </summary>
+            <returns>
+            Une tâche asynchrone qui retourne une collection d'objets <see cref="T:EventManagementAPI.Dtos.SpeakerDto"/> contenant les informations de tous les intervenants.
+            </returns>
+            <remarks>
+            Cette méthode permet de récupérer l'ensemble des intervenants enregistrés dans la base de données.
+            Chaque intervenant est retourné avec ses informations, incluant son prénom, nom, email, biographie, entreprise et rôle.
+            </remarks>
+        </member>
+        <member name="M:EventManagementAPI.Services.SpeakerService.GetByIdAsync(System.Int32)">
+            <summary>
+            Récupère un intervenant par son identifiant.
+            </summary>
+            <param name="id">L'identifiant de l'intervenant à récupérer.</param>
+            <returns>
+            Une tâche asynchrone qui retourne un objet <see cref="T:EventManagementAPI.Dtos.SpeakerDto"/> si l'intervenant est trouvé, sinon retourne <c>null</c>.
+            </returns>
+            <remarks>
+            Cette méthode permet de récupérer un intervenant spécifique à partir de son identifiant unique.
+            Si l'intervenant n'existe pas, la méthode retourne <c>null</c>.
+            </remarks>
+        </member>
+        <member name="M:EventManagementAPI.Services.SpeakerService.CreateAsync(EventManagementAPI.Dtos.SpeakerDto)">
+            <summary>
+            Crée un nouvel intervenant.
+            </summary>
+            <param name="speakerDto">L'objet <see cref="T:EventManagementAPI.Dtos.SpeakerDto"/> contenant les informations de l'intervenant à créer.</param>
+            <returns>
+            Une tâche asynchrone qui retourne l'objet <see cref="T:EventManagementAPI.Dtos.SpeakerDto"/> avec l'ID attribué à l'intervenant créé.
+            </returns>
+            <remarks>
+            Cette méthode permet de créer un nouvel intervenant dans la base de données.
+            Si l'opération réussit, l'ID de l'intervenant est mis à jour dans l'objet DTO passé en paramètre.
+            </remarks>
+        </member>
+        <member name="M:EventManagementAPI.Services.SpeakerService.UpdateAsync(System.Int32,EventManagementAPI.Dtos.SpeakerDto)">
+            <summary>
+            Met à jour les informations d'un intervenant existant.
+            </summary>
+            <param name="id">L'identifiant de l'intervenant à mettre à jour.</param>
+            <param name="speakerDto">L'objet <see cref="T:EventManagementAPI.Dtos.SpeakerDto"/> contenant les nouvelles informations de l'intervenant.</param>
+            <returns>
+            Une tâche asynchrone qui retourne un booléen indiquant si la mise à jour a réussi ou non.
+            </returns>
+            <remarks>
+            Cette méthode permet de mettre à jour les informations d'un intervenant existant dans la base de données.
+            Si l'intervenant est trouvé et que les informations sont mises à jour avec succès, la méthode retourne <c>true</c>, sinon <c>false</c>.
+            </remarks>
+        </member>
+        <member name="M:EventManagementAPI.Services.SpeakerService.DeleteAsync(System.Int32)">
+            <summary>
+            Supprime un intervenant de la base de données.
+            </summary>
+            <param name="id">L'identifiant de l'intervenant à supprimer.</param>
+            <returns>
+            Une tâche asynchrone qui retourne un booléen indiquant si la suppression a réussi ou non.
+            </returns>
+            <remarks>
+            Cette méthode permet de supprimer un intervenant de la base de données.
+            Si l'intervenant est trouvé et supprimé avec succès, la méthode retourne <c>true</c>, sinon <c>false</c>.
+            </remarks>
+        </member>
+    </members>
+</doc>

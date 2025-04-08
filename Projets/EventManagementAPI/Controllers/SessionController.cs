@@ -26,6 +26,11 @@ public class SessionController : ControllerBase
         return Ok(sessions);
     }
 
+    /// <summary>
+    /// Récupère une session par son identifiant
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     [HttpGet("{id}")]
     public async Task<ActionResult<SessionDto>> GetSession(int id)
     {

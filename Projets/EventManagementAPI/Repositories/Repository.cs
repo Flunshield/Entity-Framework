@@ -2,14 +2,13 @@ using EventManagementAPI.Data;
 using EventManagementAPI.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
-using EventManagementAPI.Repository;
 
 namespace EventManagementAPI.Repositories
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        protected readonly AppDbContext _context;
-        protected readonly DbSet<T> _dbSet;
+        private readonly AppDbContext _context;
+        private readonly DbSet<T> _dbSet;
 
         public Repository(AppDbContext context)
         {

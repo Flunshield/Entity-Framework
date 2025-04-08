@@ -1,7 +1,6 @@
 ﻿using EventManagementAPI.Dtos;
 using EventManagementAPI.Interfaces;
 using EventManagementAPI.Models;
-using EventManagementAPI.Repository;
 
 namespace EventManagementAPI.Services
 {

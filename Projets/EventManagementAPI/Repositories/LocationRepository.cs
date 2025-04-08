@@ -1,7 +1,6 @@
-using EventManagementAPI.Data;
+﻿using EventManagementAPI.Data;
 using EventManagementAPI.Interfaces;
 using EventManagementAPI.Models;
-using EventManagementAPI.Repository;
 
 namespace EventManagementAPI.Repositories
 {
@@ -10,5 +9,6 @@ namespace EventManagementAPI.Repositories
         public LocationRepository(AppDbContext context) : base(context)
         {
         }
+        
     }
 }

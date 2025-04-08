@@ -2,7 +2,6 @@ using System.Reflection;
 using EventManagementAPI.Data;
 using EventManagementAPI.Interfaces;
 using EventManagementAPI.Repositories;
-using EventManagementAPI.Repository;
 using EventManagementAPI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -40,7 +39,6 @@ builder.Services.AddCors(options => {
 
 // Repositories
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-builder.Services.AddScoped<ILocationRepository, LocationRepository>();
 
 // Services métier
 builder.Services.AddScoped<ILocationService, LocationService>();
@@ -64,11 +62,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
     
     // Exécuter les migrations en développement
-    using (var scope = app.Services.CreateScope())
-    {
-        var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-        dbContext.Database.Migrate();
-    }
+    using var scope = app.Services.CreateScope();
+    var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    dbContext.Database.Migrate();
 }
 
 // Gestion des exceptions (doit être au début du pipeline)

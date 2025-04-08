@@ -8,6 +8,10 @@ namespace EventManagementAPI.Controllers;
 [ApiController]
 public class LocationController(ILocationService locationService) : ControllerBase
 {
+    /// <summary>
+    /// Récupère tous les emplacements
+    /// </summary>
+    /// <returns></returns>
     [HttpGet]
     public async Task<ActionResult<IEnumerable<LocationDto>>> GetLocations()
     {

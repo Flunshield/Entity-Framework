@@ -10,5 +10,5 @@ public class SessionDto
     public DateTime EndTime { get; set; }
 
     public int EventId { get; set; }
-    public ICollection<Speaker> SpeakerId { get; set; }
+    public ICollection<Speaker> SpeakerId { get; set; } = [];
 }

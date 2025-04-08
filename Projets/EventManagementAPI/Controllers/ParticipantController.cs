@@ -8,6 +8,10 @@ namespace EventManagementAPI.Controllers;
 [ApiController]
 public class ParticipantController(IParticipantService participantService) : ControllerBase
 {
+    /// <summary>
+    /// Récupère tous les participants
+    /// </summary>
+    /// <returns></returns>
     [HttpGet]
     public async Task<ActionResult<IEnumerable<ParticipantDto>>> GetParticipants()
     {
