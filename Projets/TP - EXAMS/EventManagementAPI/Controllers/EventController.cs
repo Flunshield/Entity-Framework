@@ -112,7 +112,7 @@ public class EventController : ControllerBase
     }
     
     /// <summary>
-    /// Récupère les événements auxquels un participant est inscrit
+    /// Récupère les catégories existantes
     /// </summary>
     /// <returns></returns>
     [HttpGet("categories")]

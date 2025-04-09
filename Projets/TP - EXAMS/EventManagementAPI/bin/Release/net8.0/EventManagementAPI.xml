@@ -51,6 +51,12 @@
             <param name="pageSize"></param>
             <returns></returns>
         </member>
+        <member name="M:EventManagementAPI.Controllers.EventController.GetCategories">
+            <summary>
+            Récupère les catégories existantes
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:EventManagementAPI.Controllers.LocationController.GetLocations">
             <summary>
             Récupère tous les emplacements
@@ -299,6 +305,30 @@
             <inheritdoc />
         </member>
         <member name="M:EventManagementAPI.Migrations.PleinModels.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:EventManagementAPI.Migrations.seeders">
+            <inheritdoc />
+        </member>
+        <member name="M:EventManagementAPI.Migrations.seeders.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EventManagementAPI.Migrations.seeders.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EventManagementAPI.Migrations.seeders.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:EventManagementAPI.Migrations.seederscategory">
+            <inheritdoc />
+        </member>
+        <member name="M:EventManagementAPI.Migrations.seederscategory.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EventManagementAPI.Migrations.seederscategory.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:EventManagementAPI.Migrations.seederscategory.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
         <member name="T:EventManagementAPI.Models.Category">
@@ -818,6 +848,12 @@
             avec les informations pertinentes, telles que le nom, la description, les dates de début et de fin, ainsi que
             l'état de la présence du participant à chaque événement.
             </remarks>
+        </member>
+        <member name="M:EventManagementAPI.Services.EventService.GetCategoriesAsync">
+            <summary>
+            Récupère la liste des catégories d'événements disponibles.
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:EventManagementAPI.Services.LocationService.GetAllLocationsAsync">
             <summary>
