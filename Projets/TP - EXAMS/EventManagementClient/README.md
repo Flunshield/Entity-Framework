@@ -1,4 +1,7 @@
 # Gestion d'Événements Professionnels
+
+[URL REPO API](https://github.com/Flunshield/Entity-Framework/tree/main/Projets/TP%20-%20EXAMS/EventManagementAPI)
+
 Ce projet est une plateforme de gestion d'événements professionnels. Elle permet de gérer les événements, les participants, les sessions, les intervenants et les lieux. L'objectif est de fournir une API REST performante et respectant les bonnes pratiques pour répondre aux besoins des utilisateurs.
 
 ## Table des matières
@@ -72,13 +75,9 @@ Le projet repose sur une architecture en couches respectant les principes SOLID 
 
 ![img.png](img.png)
 
-![img_1.png](img_1.png)
+![img_6.png](img_6.png)
 
-![img_2.png](img_2.png)
-
-![img_3.png](img_3.png)
-
-![img_4.png](img_4.png)
+![img_7.png](img_7.png)
 
 ![img_5.png](img_5.png)
 

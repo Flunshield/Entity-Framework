@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { URL_API } from "../../Others/Constantes.ts";
-import {CategoryDto, EventDto, LocationDto} from "../../Others/Interface.ts";
-import {fetchCategories, fetchLocations, getAllEvent} from "../../Others/utils.ts";
+import { CategoryDto, EventDto, LocationDto } from "../../Others/Interface.ts";
+import { fetchCategories, fetchLocations, getAllEvent } from "../../Others/utils.ts";
 
 const UpdateEvent: React.FC = () => {
     const [events, setEvents] = useState<EventDto | null>(null);
     const [locations, setLocations] = useState<LocationDto | null>(null);
+    const [categories, setCategories] = useState<CategoryDto | null>(null);
     const [eventId, setEventId] = useState<number | null>(null);
-    const [category, setCategories] = useState<CategoryDto | null>(null);
+
     const [form, setForm] = useState({
         name: "",
         description: "",
@@ -20,7 +21,8 @@ const UpdateEvent: React.FC = () => {
     });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-        setForm({ ...form, [e.target.name]: e.target.value });
+        const { name, value } = e.target;
+        setForm({ ...form, [name]: value });
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -40,61 +42,45 @@ const UpdateEvent: React.FC = () => {
     };
 
     useEffect(() => {
-        // Récupérer tous les événements
-        getAllEvent()
-            .then(data => setEvents(data))
-            .catch(error => console.error("Error fetching events:", error));
-
-        fetchLocations()
-            .then(data => setLocations(data))
-            .catch(error => console.error("Error fetching locations:", error));
-
-        fetchCategories()
-            .then(data => setCategories(data))
-            .catch(error => console.error("Error fetching categories:", error));
+        getAllEvent().then(setEvents).catch(console.error);
+        fetchLocations().then(setLocations).catch(console.error);
+        fetchCategories().then(setCategories).catch(console.error);
     }, []);
 
     useEffect(() => {
         if (eventId !== null) {
-            // Récupérer les détails de l'événement à mettre à jour
             fetch(`${URL_API}/Event/${eventId}`)
                 .then((res) => res.json())
-                .then((data) => {
-                    console.log(data)
-                        const event = data
-                    console.log(data)
-                        setForm({
-                            id: event.id,
-                            name: event.name,
-                            description: event.description,
-                            startDate: event.startDate,
-                            endDate: event.endDate,
-                            attendanceStatus: event.attendanceStatus,
-                            locationId: event.locationId,
-                            categoryId: event.categoryId,
-                        });
+                .then((event) => {
+                    const eventData = event;
+                    setForm({
+                        id: eventData.id,
+                        name: eventData.name,
+                        description: eventData.description,
+                        startDate: eventData.startDate,
+                        endDate: eventData.endDate,
+                        attendanceStatus: eventData.attendanceStatus,
+                        locationId: eventData.locationId,
+                        categoryId: eventData.categoryId,
+                    });
                 })
                 .catch(console.error);
         }
     }, [eventId]);
 
     return (
-        <form onSubmit={handleSubmit} className="bg-white p-6 rounded-xl shadow-md space-y-4">
-            <h2 className="text-2xl font-bold text-gray-800">Modifier l'Événement</h2>
+        <form onSubmit={handleSubmit} className="bg-white p-8 rounded-2xl shadow-xl space-y-6 max-w-xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-800 text-center">Modifier un Événement</h2>
 
-            {/* Sélecteur d'événements */}
+            {/* Event selector */}
             <div>
-                <label htmlFor="eventId" className="block text-sm font-medium text-gray-700">
-                    Sélectionner un événement
-                </label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Événement à modifier</label>
                 <select
-                    name="eventId"
-                    value={eventId || ""}
+                    value={eventId ?? ""}
                     onChange={(e) => setEventId(Number(e.target.value))}
-                    className="w-full p-2 border rounded"
-                    required
+                    className="w-full border border-gray-300 rounded-lg p-2"
                 >
-                    <option value={""} disabled>Sélectionner un événement</option>
+                    <option value="">Sélectionnez un événement</option>
                     {events?.$values.map((event) => (
                         <option key={event.id} value={event.id}>
                             {event.name}
@@ -103,90 +89,89 @@ const UpdateEvent: React.FC = () => {
                 </select>
             </div>
 
-            {/* Formulaire de mise à jour de l'événement */}
-            <input
-                name="name"
-                placeholder="name"
-                value={form.name}
-                onChange={handleChange}
-                className="w-full p-2 border rounded"
-                required
-            />
-            <textarea
-                name="description"
-                placeholder="Description"
-                value={form.description}
-                onChange={handleChange}
-                className="w-full p-2 border rounded"
-                required
-            />
-            <input
-                name="startDate"
-                type="date"
-                value={form.startDate ? form.startDate.split("T")[0] : ""}
-                onChange={handleChange}
-                className="w-full p-2 border rounded"
-                required
-            />
-            <input
-                name="endDate"
-                type="date"
-                value={form.endDate ? form.endDate.split("T")[0] : ""}
-                onChange={handleChange}
-                className="w-full p-2 border rounded"
-                required
-            />
-            <input
-                name="attendanceStatus"
-                placeholder="Statut"
-                value={form.attendanceStatus}
-                onChange={handleChange}
-                className="w-full p-2 border rounded"
-                required
-            />
+            {/* Input fields */}
+            <div className="space-y-4">
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Nom de l'événement"
+                    value={form.name}
+                    onChange={handleChange}
+                    className="w-full border border-gray-300 rounded-lg p-2"
+                />
+                <textarea
+                    name="description"
+                    placeholder="Description"
+                    value={form.description}
+                    onChange={handleChange}
+                    className="w-full border border-gray-300 rounded-lg p-2"
+                />
+                <input
+                    type="date"
+                    name="startDate"
+                    value={form.startDate}
+                    onChange={handleChange}
+                    className="w-full border border-gray-300 rounded-lg p-2"
+                />
+                <input
+                    type="date"
+                    name="endDate"
+                    value={form.endDate}
+                    onChange={handleChange}
+                    className="w-full border border-gray-300 rounded-lg p-2"
+                />
+                <input
+                    type="text"
+                    name="attendanceStatus"
+                    placeholder="Statut de présence"
+                    value={form.attendanceStatus}
+                    onChange={handleChange}
+                    className="w-full border border-gray-300 rounded-lg p-2"
+                />
+            </div>
 
+            {/* Select Location */}
             <div>
-                <label htmlFor="locationId" className="block text-sm font-medium text-gray-700">
-                    Sélectionner un Lieu
-                </label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Lieu</label>
                 <select
                     name="locationId"
                     value={form.locationId}
                     onChange={handleChange}
-                    className="w-full p-2 border rounded"
-                    required
+                    className="w-full border border-gray-300 rounded-lg p-2"
                 >
-                    <option value={0} disabled>Sélectionner un lieu</option>
+                    <option value="">Sélectionnez un lieu</option>
                     {locations?.$values.map((location) => (
                         <option key={location.id} value={location.id}>
-                            {location.name} - {location.address}
+                            {location.name}
                         </option>
                     ))}
                 </select>
             </div>
 
+            {/* Select Category */}
             <div>
-                <label htmlFor="categoryId" className="block text-sm font-medium text-gray-700">
-                    Sélectionner une categorie
-                </label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Catégorie</label>
                 <select
                     name="categoryId"
                     value={form.categoryId}
                     onChange={handleChange}
-                    className="w-full p-2 border rounded"
-                    required
+                    className="w-full border border-gray-300 rounded-lg p-2"
                 >
-                    <option value={0} disabled>Sélectionner un lieu</option>
-                    {category?.$values.map((categorie) => (
-                        <option key={categorie.id} value={categorie.id}>
-                            {categorie.name} - {categorie.description}
+                    <option value="">Sélectionnez une catégorie</option>
+                    {categories?.$values.map((category) => (
+                        <option key={category.id} value={category.id}>
+                            {category.name}
                         </option>
                     ))}
                 </select>
             </div>
 
-            <button type="submit" onClick={handleSubmit} className="bg-green-600 text-white px-4 py-2 rounded">
-                Mettre à jour
+            {/* Submit Button */}
+            <button
+                type="submit"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300"
+            >
+                Mettre à jour l'événement
             </button>
         </form>
     );
