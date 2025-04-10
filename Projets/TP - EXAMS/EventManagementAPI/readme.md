@@ -110,6 +110,15 @@ https://localhost:{port}/swagger
 - **Data/**: Configuration de la base de données et contexte EF Core  
 - **Interfaces/**: Contrats pour les services et repositories   
 
+### Mise en place des tests
+1. Allez dans EventManagementAPI.Tests
+2. Installez les dépendances avec `dotnet restore`
+3. Lancez les tests avec `dotnet test`
+
+Actuellement, il y a un fichier de test pour le controller Event.
+
+![img.png](img.png)
+
 ### 🗺️ Extensibilité
 Pour étendre l'API : 
 

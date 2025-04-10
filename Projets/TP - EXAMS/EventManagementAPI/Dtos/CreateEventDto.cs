@@ -1,4 +1,6 @@
-﻿namespace EventManagementAPI.Dtos;
+﻿using System;
+
+namespace EventManagementAPI.Dtos;
 
 public class CreateEventDto
 {
